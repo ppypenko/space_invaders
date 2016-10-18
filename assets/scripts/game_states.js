@@ -1,5 +1,5 @@
 "use strict";
-var GAME_STATES ={
+var GAME_STATES = {
     STATE: 0,
     INIT: 0,
     MENU: 1,
