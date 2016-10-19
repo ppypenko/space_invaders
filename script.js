@@ -71,8 +71,6 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    titleScreen = new createjs.Bitmap(queue.getResult("title"));
-    instructionScreen = new createjs.Bitmap(queue.getResult("instructions"));
     levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
     levelTwoScreen = new createjs.Bitmap(queue.getResult("levelTwo"));
     levelThreeScreen = new createjs.Bitmap(queue.getResult("levelThree"));
