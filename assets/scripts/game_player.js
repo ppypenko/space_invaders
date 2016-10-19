@@ -4,6 +4,7 @@ var player = {
         
     },
     stats: {
+        
         health: 0,
         score: 0
     }
