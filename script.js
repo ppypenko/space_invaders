@@ -38,7 +38,30 @@ var manifest = [{
 }, {
         src: "images/speeder.png",
         id: "speeder"
-}];
+}, {
+        src: "images/title.png",
+        id: "title"
+}, {
+        src: "images/instructions.png",
+        id: "instructions"
+}, {
+        src: "images/levelOne.png",
+        id: "levelOne"
+}, {
+        src: "images/levelTwo.png",
+        id: "levelTwo"
+}, {
+        src: "images/levelThree.png",
+        id: "levelThree"
+}, {
+        src: "images/gameOver.png",
+        id: "gameOver"
+}, {
+        src: "images/victory.png",
+        id: "victory"
+}
+               
+];
 
 function setupCanvas() {
     var canvas = document.getElementById("game");
@@ -49,7 +72,7 @@ function setupCanvas() {
 
 function loadComplete(evt) {
     titleScreen = new createjs.Bitmap(queue.getResult("title"));
-    instructionScreen = new createjs.Bitmap(queue.getResult("instruction"));
+    instructionScreen = new createjs.Bitmap(queue.getResult("instructions"));
     levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
     levelTwoScreen = new createjs.Bitmap(queue.getResult("levelTwo"));
     levelThreeScreen = new createjs.Bitmap(queue.getResult("levelThree"));
