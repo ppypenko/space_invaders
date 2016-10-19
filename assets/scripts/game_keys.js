@@ -39,4 +39,4 @@ function handleKeyUp(evt) {
 
 
 document.onkeydown = handleKeyDown;
-docuemnt.onkeyup = handleKeyUp;
+document.onkeyup = handleKeyUp;

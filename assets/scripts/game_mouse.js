@@ -6,6 +6,7 @@ function mouseInit() {
         mouseY = Math.floor(evt.stageY);
     });
     stage.on("mousedown", function(evt) {
+        console.log(evt);
         console.log("mouse is down");
     });
     stage.on("pressup", function(evt) {
