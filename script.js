@@ -1,11 +1,28 @@
 "use strict";
 var stage, queue;
-var manifest = [{
-    src: ""
-}, {
-    src: "",
-    id: ""
-}];
+var manifest = [
+    {
+        src: "title.png", id: "title"
+    },
+    {
+        src: "instruction.png", id: "instruction"
+    },
+    {
+        src: "levelOne", id: "levelOne"
+    },
+    {
+        src: "levelTwo", id: "levelTwo"
+    },
+    {
+        src: "levelThree", id: "levelThree"
+    },
+    {
+        src: "gameOver", id: "gameOver"
+    },
+    {
+        src: "victory", id: "victory"
+    }
+];
 
 function setupCanvas() {
     var canvas = document.getElementById("game");
@@ -15,7 +32,14 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    mouseInfo();
+    titleScreen = new createjs.Bitmap(queue.getResult("title"));
+    instructionScreen = new createjs.Bitmap(queue.getResult("instruction"));
+    levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
+    levelTwoScreen = new createjs.Bitmap(queue.getResult("levelTwo"));
+    levelThreeScreen = new createjs.Bitmap(queue.getResult("levelThree"));
+    gameOverScreen = new createjs.Bitmap(queue.getResult("gameOver"));
+    victoryScreen = new createjs.Bitmap(queue.getResult("victory"));
+    test();
 }
 
 function loadFiles() {
