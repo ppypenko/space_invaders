@@ -91,11 +91,6 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
-    levelTwoScreen = new createjs.Bitmap(queue.getResult("levelTwo"));
-    levelThreeScreen = new createjs.Bitmap(queue.getResult("levelThree"));
-    gameOverScreen = new createjs.Bitmap(queue.getResult("gameOver"));
-    victoryScreen = new createjs.Bitmap(queue.getResult("victory"));
     test();
 }
 
