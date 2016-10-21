@@ -9,32 +9,51 @@ var GAME_STATES = {
     VICTORY: 5,
     CONTINUE: 6,
     PAUSE: 7,
-    START: 8
+    START: 8,
+    GAME_ON: false,
+    GAME_PAUSED: false
 };
-function gameSetup(){
+
+function gameSetup() {
     GAME_STATES.STATE = GAME_STATES.INIT;
 }
-function gameMenu(){
+
+function gameMenu() {
     GAME_STATES.STATE = GAME_STATES.MENU;
 }
-function gameInstructions(){
+
+function gameInstructions() {
     GAME_STATES.STATE = GAME_STATES.INSTRUCTIONS;
 }
-function gameCredits(){
+
+function gameCredits() {
     GAME_STATES.STATE = GAME_STATES.CREDITS;
 }
-function gameOver(){
+
+function gameOver() {
     GAME_STATES.STATE = GAME_STATES.OVER;
 }
-function gameVictory(){
+
+function gameVictory() {
     GAME_STATES.STATE = GAME_STATES.VICTORY;
 }
-function gameContinue(){
+
+function gameContinue() {
     GAME_STATES.STATE = GAME_STATES.CONTINUE;
 }
-function gamePause(){
+
+function gamePause() {
     GAME_STATES.STATE = GAME_STATES.PAUSE;
 }
-function gameStart(){
+
+function gameStart() {
     GAME_STATES.STATE = GAME_STATES.START;
+}
+
+function checkIfInGame() {
+    return (GAME_STATES.STATE === GAME_STATES.CONTINUE);
+}
+
+function checkIfPaused() {
+    return (GAME_STATES.STATE === GAME_STATES.PAUSE);
 }

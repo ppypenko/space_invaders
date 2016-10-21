@@ -29,14 +29,35 @@ var manifest = [{
 }, {
         src: "scripts/game_state.js"
 }, {
+        src: "images/battlershot.png",
+        id: "battlershot"
+}, {
         src: "images/battler.png",
         id: "battler"
 }, {
         src: "images/mothership.png",
         id: "mothership"
 }, {
+        src: "images/mothershipshot.png",
+        id: "mothershipshot"
+}, {
         src: "images/speeder.png",
         id: "speeder"
+}, {
+        src: "images/speedershot.png",
+        id: "speedershot"
+}, {
+        src: "images/tanks.png",
+        id: "tanks"
+}, {
+        src: "images/turrent.png",
+        id: "turrent"
+}, {
+        src: "images/tankshot.png",
+        id: "tankshot"
+}, {
+        src: "images/tankshotpowered.png",
+        id: "tankshotpowered"
 }, {
         src: "images/title.png",
         id: "title"

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p id="test">
+    </p>
+    <script>
+        var length = 2, //ufos
+            i = 0,
+            e = 0,
+            html = "",
+            shotsper = 6, //ufo shots
+            shots = length * shotsper; //array length
+        for (i = 0; i < length; i += 1) {
+            for (e = i * shotsper; e < shots; e += 1) {
+                if (i === Math.floor(e / shotsper)) {
+                    html += "" + Math.floor(e / shotsper) + ", ";
+                } else {
+                    break;
+                }
+            }
+        }
+        document.getElementById("test").innerHTML = html;
+    </script>
+</body>
+
+</html>
