@@ -26,8 +26,7 @@ var manifest = [{
         src: "scripts/game_screen_victory.js"
 }, {
         src: "scripts/game_sound.js"
-},
-    {
+}, {
         src: "scripts/game_state.js"
 }, {
         src: "images/battler.png",
@@ -60,7 +59,7 @@ var manifest = [{
         src: "images/victory.png",
         id: "victory"
 }
-               
+
 ];
 
 function setupCanvas() {
