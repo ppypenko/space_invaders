@@ -1,11 +1,14 @@
 "use strict";
 var player = {
-    img: {
-        
-    },
-    stats: {
-        
-        health: 0,
-        score: 0
-    }
+    tank: {},
+    shot: {},
+    shotClones: [],
+    cloneSize: 20,
+    damage: 1,
+    health: 3,
+    score: 0
 };
+
+function damagePlayer(dmg) {
+
+}

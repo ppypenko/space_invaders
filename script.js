@@ -7,6 +7,8 @@ var manifest = [{
 }, {
         src: "scripts/game_engine.js"
 }, {
+        src: "scripts/game_explosion.js"
+}, {
         src: "scripts/game_keys.js"
 }, {
         src: "scripts/game_mouse.js"
