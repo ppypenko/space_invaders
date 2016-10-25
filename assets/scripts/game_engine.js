@@ -5,10 +5,10 @@ function menu() {
     case GAME_STATES.INIT:
         console.log("this ran this function");
         setupGame();
-        gameSetup();
+        gameMenu();
         break;
     case GAME_STATES.MENU:
-        gameMenu();
+        titleScreenView();
         break;
     case GAME_STATES.INSTRUCTIONS:
         gameInstructions();

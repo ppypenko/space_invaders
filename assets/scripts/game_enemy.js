@@ -240,12 +240,13 @@ function resetBattlers() {
 }
 
 function resetSpeeders() {
-    var i = 0;
-    for (i = 0; i < enemy.speederUfo.cloneSize; i += 1) {
-        enemy.speederUfo.ufoClones[i].visible = false;
-        enemy.speederUfo.ufoClones[i].x = 400;
-        enemy.speederUfo.ufoClones[i].y = -150;
-    }
+    var i = 0,
+        pady =
+        for (i = 0; i < enemy.speederUfo.cloneSize; i += 1) {
+            enemy.speederUfo.ufoClones[i].visible = false;
+            enemy.speederUfo.ufoClones[i].x = 400;
+            enemy.speederUfo.ufoClones[i].y = -150;
+        }
 }
 
 function resetMotherships() {

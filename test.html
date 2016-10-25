@@ -8,25 +8,13 @@
     <p id="test">
     </p>
     <script>
-        var length = 2, //ufos
-            i = 0,
-            e = 0,
-            html = "",
-            test = [],
-            shotsper = [], //ufo shots
-            spread = []; //array length
-        for (i = 0; i < 2; i += 1) {
-            shotsper = [];
-            for (e = 0; e < 5; e += 1) {
-                spread = [];
-                for (u = 0; u < 5; u += 1) {
-                    spread.push(u);
-                }
-                shotsper.push(spread);
-            }
-            test.push(shotsper);
+        var i = 0;
+
+        function addOne() {
+            i += 1;
+            console.log(i);
         }
-        console.log(test);
+        setInterval(addOne, 1000);
     </script>
 </body>
 

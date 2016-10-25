@@ -5,7 +5,6 @@ function setupGame() {
     buildInstructionsButton();
     buildMenuButton();
     buildPlayButton();
-    titleScreenView();
 }
 
 function titleScreenView() {
