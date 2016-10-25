@@ -1,7 +1,7 @@
 function setupGame() {
     buildTitle();
     buildButtons();
-    setButtons();    
+    setButtons();
 }
 
 function titleScreenView() {
