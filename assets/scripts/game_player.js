@@ -12,3 +12,7 @@ var player = {
 function damagePlayer(dmg) {
 
 }
+
+function playerHit(shot) {
+
+}

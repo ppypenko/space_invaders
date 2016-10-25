@@ -1,8 +1,7 @@
 "use strict";
 
-var gameState = ;
-
-function menu(gameState){
+function menu() {
+    switch (GAME_STATES.STATE) {
     case GAME_STATES.INIT:
         gameSetup();
         break;
@@ -14,4 +13,5 @@ function menu(gameState){
         break;
     default:
         break;
+    }
 }
