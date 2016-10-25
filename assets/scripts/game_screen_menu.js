@@ -6,17 +6,13 @@ function buildTitle() {
     titleScreen.x = 0;
     titleScreen.y = 0;
     titleScreen.visible = false;
-    console.log("this added the title to the stage");
     stage.addChild(titleScreen);
-    stage.update();
 }
 
-function showTitle(){
-    console.log("this made the title screen visible");
+function showTitle() {
     titleScreen.visible = true;
-    stage.update();
 }
 
-function hideTitle(){
+function hideTitle() {
     titleScreen.visible = false;
 }

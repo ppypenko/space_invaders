@@ -11,8 +11,6 @@ var manifest = [{
 }, {
         src: "scripts/game_keys.js"
 }, {
-        src: "scripts/game_loop.js"
-}, {
         src: "scripts/game_start.js"
 }, {
         src: "scripts/game_mouse.js"
@@ -104,6 +102,8 @@ var manifest = [{
 }, {
         src: "images/menuButton.png",
         id: "menuButton"
+}, {
+        src: "scripts/game_loop.js"
 }
 
 ];
