@@ -11,6 +11,10 @@ var manifest = [{
 }, {
         src: "scripts/game_keys.js"
 }, {
+        src: "scripts/game_loop.js"
+}, {
+        src: "scripts/game_start.js"
+}, {
         src: "scripts/game_mouse.js"
 }, {
         src: "scripts/game_player.js"
@@ -112,10 +116,7 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    buildTitle();
-    showTitle();
-    buildButtons();
-    showPlayGameButton();
+    GAME_STATES.STATE = GAME_STATES.INIT;
 }
 
 function loadFiles() {

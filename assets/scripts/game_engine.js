@@ -29,7 +29,7 @@ function menu() {
         gamePause();
         break;
     case GAME_STATES.START:
-        gameStart();
+        
         break;
     default:
         break;
