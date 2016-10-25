@@ -10,6 +10,7 @@ var GAME_STATES = {
     CONTINUE: 6,
     PAUSE: 7,
     START: 8,
+    NEXT_LEVEL: 9,
     GAME_ON: false,
     GAME_PAUSED: false
 };
@@ -48,6 +49,10 @@ function gamePause() {
 
 function gameStart() {
     GAME_STATES.STATE = GAME_STATES.START;
+}
+
+function gameNextLevel() {
+    GAME_STATES.STATE = GAME_STATES.NEXT_LEVEL;
 }
 
 function checkIfInGame() {
