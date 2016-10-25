@@ -112,7 +112,8 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    setupGame();
+    buildTitle();
+    showTitle();
 }
 
 function loadFiles() {
