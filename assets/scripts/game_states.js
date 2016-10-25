@@ -49,6 +49,7 @@ function gamePause() {
 
 function gameStart() {
     GAME_STATES.STATE = GAME_STATES.START;
+    
 }
 
 function gameNextLevel() {

@@ -1,17 +1,12 @@
 function setupGame() {
     buildTitle();
-    buildPlayGameButton();
-    buildContinueButton();
-    buildInstructionsButton();
-    buildMenuButton();
-    buildPlayButton();
-    titleScreenView();
+    buildButtons();
+    setButtons();    
 }
 
 function titleScreenView() {
     showTitle();
     showPlayGameButton();
-    showMenuButton();
     showInstructionButton();
 }
 

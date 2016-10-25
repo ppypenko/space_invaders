@@ -17,7 +17,7 @@ function buildButtons() {
         btnSheet.push(new createjs.SpriteSheet({
             images: [queue.getResult(sheets[i])],
             frames: {
-                width: 166,
+                width: 167,
                 height: 51,
                 count: 3,
                 regX: 0,
@@ -42,15 +42,15 @@ function buildButtons() {
 function setButtons() {
     btn.Play.x = 354;
     btn.Continue.x = 354;
-    btn.Instruct.x = 257;
+    btn.Instruct.x = 300;
     btn.Menu.x = 257;
-    btn.PlayGame.x = 543;
+    btn.PlayGame.x = 300;
 
     btn.Play.y = 284;
     btn.Continue.y = 400;
-    btn.Instruct.y = 538;
+    btn.Instruct.y = 500;
     btn.Menu.y = 538;
-    btn.PlayGame.y = 538;
+    btn.PlayGame.y = 450;
 
     btn.Play.visible = false;
     btn.Menu.visible = false;
@@ -126,7 +126,7 @@ function setButtonListeners() {
 
     btn.PlayGame.on("click", function (evt) {
         btn.PlayGame.gotoAndPlay("btnOff");
-        gameSetup();
+        gameStart();
     });
     btn.PlayGame.on("mouseover", function (evt) {
         btn.PlayGame.gotoAndPlay("btnHov");
