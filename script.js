@@ -19,7 +19,11 @@ var manifest = [{
 }, {
         src: "scripts/game_screen_instructions.js"
 }, {
-        src: "scripts/game_screen_levels.js"
+        src: "scripts/game_screen_level_one.js"
+}, {
+        src: "scripts/game_screen_level_two.js"
+}, {
+        src: "scripts/game_screen_level_three.js"
 }, {
         src: "scripts/game_screen_menu.js"
 }, {
@@ -29,7 +33,7 @@ var manifest = [{
 }, {
         src: "scripts/game_sound.js"
 }, {
-        src: "scripts/game_state.js"
+        src: "scripts/game_states.js"
 }, {
         src: "images/battlershot.png",
         id: "battlershot"
@@ -81,6 +85,21 @@ var manifest = [{
 }, {
         src: "images/victory.png",
         id: "victory"
+}, {
+        src: "images/playGameButton.png",
+        id: "playGameButton"
+}, {
+        src: "images/playButton.png",
+        id: "playButton"
+}, {
+        src: "images/continueButton.png",
+        id: "continueButton"
+}, {
+        src: "images/instructionButton.png",
+        id: "instructionButton"
+}, {
+        src: "images/menuButton.png",
+        id: "menuButton"
 }
 
 ];
@@ -93,7 +112,7 @@ function setupCanvas() {
 }
 
 function loadComplete(evt) {
-    test();
+    setupGame();
 }
 
 function loadFiles() {
