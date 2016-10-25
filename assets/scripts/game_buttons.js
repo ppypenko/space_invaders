@@ -1,93 +1,159 @@
 "use strict";
 
-var playGameButton, continueGameButton, instructionButton, menuButton, playButton;
+var btn = {
+        Play: {},
+        Menu: {},
+        Continue: {},
+        Instruct: {},
+        PlayGame: {}
+    },
+    sheets = ["playButton", "menuButton", "instructionsButton", "continueButton", "playGameButton"];
 
-function buildPlayGameButton(){
-    playGameButton = new createjs.Bitmap(queue.getResult("playGameButton"));
-    playGameButton.x = 0;
-    playGameButton.y = 0;
-    playGameButton.visible = false;
-    stage.addChild(playGameButton);
-    stage.update();
+function buildButtons() {
+    var btnSheet = [],
+        i = 0,
+        length = sheets.length;
+    for (i = 0; i < length; i += 1) {
+        btnSheet.push(new createjs.SpriteSheet({
+            images: [queue.getResult(sheets[i])],
+            frames: {
+                width: 93,
+                height: 32,
+                count: 3,
+                regX: 0,
+                regY: 0,
+                spacing: 2,
+                margin: 0
+            },
+            animations: {
+                btnOff: [0, 0, "btnOff", 0],
+                btnHov: [1, 1, "btnHov", 0],
+                btnClck: [2, 2, "btnClck", 0]
+            }
+        }));
+    }
+    btn.Play = new createjs.Sprite(btnSheet[0]);
+    btn.Menu = new createjs.Sprite(btnSheet[1]);
+    btn.Instruct = new createjs.Sprite(btnSheet[2]);
+    btn.Continue = new createjs.Sprite(btnSheet[3]);
+    btn.PlayGame = new createjs.Sprite(btnSheet[4]);
+    stage.addChild(btn.Play);
+    stage.addChild(btn.Menu);
+    stage.addChild(btn.Instruct);
+    stage.addChild(btn.Continue);
+    stage.addChild(btn.PlayGame);
 }
 
-function showPlayGameButton(){
-    playGameButton.visible = true;
-    stage.update();
+function setButtonListeners() {
+    stage.enableMouseOver();
+
+    btn.Play.on("click", function (evt) {
+        btn.Play.gotoAndPlay("btnOff");
+        gameStart();
+    });
+    btn.Play.on("mouseover", function (evt) {
+        btn.Play.gotoAndPlay("btnHov");
+    });
+    btn.Play.on("mouseout", function (evt) {
+        btn.Play.gotoAndPlay("btnOff");
+    });
+    btn.Play.on("mousedown", function (evt) {
+        btn.Play.gotoAndPlay("btnClck");
+    });
+
+    btn.Menu.on("click", function (evt) {
+        btn.Menu.gotoAndPlay("btnOff");
+        gameMenu();
+    });
+    btn.Menu.on("mouseover", function (evt) {
+        btn.Menu.gotoAndPlay("btnHov");
+    });
+    btn.Menu.on("mouseout", function (evt) {
+        btn.Menu.gotoAndPlay("btnOff");
+    });
+    btn.Menu.on("mousedown", function (evt) {
+        btn.Menu.gotoAndPlay("btnClck");
+    });
+
+    btn.Instruct.on("click", function (evt) {
+        btn.Instruct.gotoAndPlay("btnOff");
+        gameInstructions();
+    });
+    btn.Instruct.on("mouseover", function (evt) {
+        btn.Instruct.gotoAndPlay("btnHov");
+    });
+    btn.Instruct.on("mouseout", function (evt) {
+        btn.Instruct.gotoAndPlay("btnOff");
+    });
+    btn.Instruct.on("mousedown", function (evt) {
+        btn.Instruct.gotoAndPlay("btnClck");
+    });
+
+    btn.Continue.on("click", function (evt) {
+        btn.Continue.gotoAndPlay("btnOff");
+        gameContinue();
+    });
+    btn.Continue.on("mouseover", function (evt) {
+        btn.Continue.gotoAndPlay("btnHov");
+    });
+    btn.Continue.on("mouseout", function (evt) {
+        btn.Continue.gotoAndPlay("btnOff");
+    });
+    btn.Continue.on("mousedown", function (evt) {
+        btn.Continue.gotoAndPlay("btnClck");
+    });
+
+    btn.PlayGame.on("click", function (evt) {
+        btn.PlayGame.gotoAndPlay("btnOff");
+        gameSetup();
+    });
+    btn.PlayGame.on("mouseover", function (evt) {
+        btn.PlayGame.gotoAndPlay("btnHov");
+    });
+    btn.PlayGame.on("mouseout", function (evt) {
+        btn.PlayGame.gotoAndPlay("btnOff");
+    });
+    btn.PlayGame.on("mousedown", function (evt) {
+        btn.PlayGame.gotoAndPlay("btnClck");
+    });
 }
 
-function hidePlayGameButton(){
-    playGameButton.visible = false;
+function showPlayGameButton() {
+    btn.PlayGame.visible = true;
 }
 
-function buildContinueButton(){
-    continueGameButton = new createjs.Bitmap(queue.getResult("continueButton"));
-    continueGameButton.x = 0;
-    continueGameButton.y = 0;
-    continueGameButtonButton.visible = false;
-    stage.addChild(continueGameButton);
-    stage.update();
+function hidePlayGameButton() {
+    btn.PlayGame.visible = false;
 }
 
-function showContinueButton(){
-    continueGameButton.visible = true;
-    stage.update();
+function showContinueButton() {
+    btn.Continue.visible = true;
 }
 
-function hideContinueButton(){
-    continueGameButton.visible = false;
+function hideContinueButton() {
+    btn.Continue.visible = false;
 }
 
-function buildInstructionsButton(){
-    instructionButton = new createjs.Bitmap(queue.getResult("instructionsButton"));
-    instructionButton.x = 0;
-    instructionButton.y = 0;
-    instructionButton.visible = false;
-    stage.addChild(instructionButton);
-    stage.update();
+function showInstructionButton() {
+    btn.Instruct.visible = true;
 }
 
-function showInstructionButton(){
-    instructionButton.visible = true;
-    stage.update();
+function hideInstructionButton() {
+    btn.Instruct.visible = false;
 }
 
-function hideInstructionButton(){
-    instructionButton.visible = false;
+function showMenuButton() {
+    btn.Menu.visible = true;
 }
 
-function buildMenuButton(){
-    menuButton = new createjs.Bitmap(queue.getResult("menuButton"));
-    menuButton.x = 0;
-    menuButton.y = 0;
-    menuButton.visible = false;
-    stage.addChild(menuButton);
-    stage.update();
+function hideMenuButton() {
+    btn.Menu.visible = false;
 }
 
-function showMenuButton(){
-    menuButton.visible = true;
-    stage.update();
+function showPlayButton() {
+    btn.Play.visible = true;
 }
 
-function hideMenuButton(){
-    menuButton.visible = false;
-}
-
-function buildPlayButton(){
-    playButton = new createjs.Bitmap(queue.getResult("playButton"));
-    playButton.x = 0;
-    playButton.y = 0;
-    playButton.visible = false;
-    stage.addChild(playButton);
-    stage.update();
-}
-
-function showPlayButton(){
-    playButton.visible = true;
-    stage.update();
-}
-
-function hidePlayButton(){
-    playGameButton.visible = false;
+function hidePlayButton() {
+    btn.Play.visible = false;
 }

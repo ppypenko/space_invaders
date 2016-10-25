@@ -12,18 +12,21 @@
             i = 0,
             e = 0,
             html = "",
-            shotsper = 6, //ufo shots
-            shots = length * shotsper; //array length
-        for (i = 0; i < length; i += 1) {
-            for (e = i * shotsper; e < shots; e += 1) {
-                if (i === Math.floor(e / shotsper)) {
-                    html += "" + Math.floor(e / shotsper) + ", ";
-                } else {
-                    break;
+            test = [],
+            shotsper = [], //ufo shots
+            spread = []; //array length
+        for (i = 0; i < 2; i += 1) {
+            shotsper = [];
+            for (e = 0; e < 5; e += 1) {
+                spread = [];
+                for (u = 0; u < 5; u += 1) {
+                    spread.push(u);
                 }
+                shotsper.push(spread);
             }
+            test.push(shotsper);
         }
-        document.getElementById("test").innerHTML = html;
+        console.log(test);
     </script>
 </body>
 
