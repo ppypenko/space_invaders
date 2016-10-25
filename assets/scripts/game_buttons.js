@@ -37,6 +37,27 @@ function buildButtons() {
     btn.Instruct = new createjs.Sprite(btnSheet[2]);
     btn.Continue = new createjs.Sprite(btnSheet[3]);
     btn.PlayGame = new createjs.Sprite(btnSheet[4]);
+}
+
+function setButtons() {
+    btn.Play.x = 354;
+    btn.Continue.x = 354;
+    btn.Instruct.x = 257;
+    btn.Menu.x = 257;
+    btn.PlayGame.x = 543;
+
+    btn.Play.y = 284;
+    btn.Continue.y = 400;
+    btn.Instruct.y = 538;
+    btn.Menu.y = 538;
+    btn.PlayGame.y = 538;
+
+    btn.Play.visible = false;
+    btn.Menu.visible = false;
+    btn.Instruct.visible = false;
+    btn.Continue.visible = false;
+    btn.PlayGame.visible = false;
+
     stage.addChild(btn.Play);
     stage.addChild(btn.Menu);
     stage.addChild(btn.Instruct);

@@ -10,7 +10,7 @@ var player = {
 };
 
 function damagePlayer(dmg) {
-
+    var e = "";
 }
 
 function playerHit(shot) {

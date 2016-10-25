@@ -501,10 +501,20 @@ function moveShots(ufo) {
     }
 }
 
-function hitPlayerOrGround() {
-
+function playerLost() {
+    groundReached(enemy.battlerUfo);
+    groundReached(enemy.speederUfo);
 }
 
 function playerHit() {
 
+}
+
+function groundReached(ufo) {
+    var i = 0;
+    for (i = 0; i < ufo.cloneSize; i += 1) {
+        if (ufo.ufoClones[i].visible && ufo.ufoClones[i].y > 590) {
+            gameOver();
+        }
+    }
 }
