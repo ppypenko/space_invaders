@@ -7,7 +7,7 @@ var btn = {
         Instruct: {},
         PlayGame: {}
     },
-    sheets = ["playButton", "menuButton", "instructionsButton", "continueButton", "playGameButton"];
+    sheets = ["playButton", "menuButton", "instructionButton", "continueButton", "playGameButton"];
 
 function buildButtons() {
     var btnSheet = [],
@@ -17,8 +17,8 @@ function buildButtons() {
         btnSheet.push(new createjs.SpriteSheet({
             images: [queue.getResult(sheets[i])],
             frames: {
-                width: 93,
-                height: 32,
+                width: 166,
+                height: 51,
                 count: 3,
                 regX: 0,
                 regY: 0,

@@ -114,6 +114,8 @@ function setupCanvas() {
 function loadComplete(evt) {
     buildTitle();
     showTitle();
+    buildButtons();
+    showPlayGameButton();
 }
 
 function loadFiles() {
