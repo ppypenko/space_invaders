@@ -5,6 +5,7 @@ function setupGame() {
     buildInstructionScreen();
     buildLevelOneScreen();
     createEnemies();
+    createaiPlayer();
     //createaiPlayer();
     buildButtons();
     buildScore();
@@ -47,13 +48,13 @@ function levelOneView() {
 
 function levelOnePlay() {
     enemyBeat();
-    //aiPlayerLost();
+    aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     //hitEnemies();
     nextEnemy();
     moveEnemies();
-    //aiPlayerFuncs();
+    aiPlayerFuncs();
     hidePlayButton();
 }
 

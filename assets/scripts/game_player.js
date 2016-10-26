@@ -20,7 +20,7 @@ var aiPlayer = {
 };
 
 function buildaiPlayer() {
-    aiPlayer.tank = new createjs.SpriteSheet({
+    var t = new createjs.SpriteSheet({
         images: [queue.getResult("tanks")],
         frames: {
             width: 80,
@@ -35,6 +35,7 @@ function buildaiPlayer() {
             move: [0, 1, "move", 0.5]
         }
     });
+    aiPlayer.tank = new createjs.Sprite(t);
     aiPlayer.tank.visible = false;
 
     aiPlayer.turrent = new createjs.Bitmap(queue.getResult("turrent"));
@@ -42,7 +43,7 @@ function buildaiPlayer() {
     aiPlayer.turrent.regY = (aiPlayer.turrent.getBounds().height / 2) / 2;
     aiPlayer.turrent.visible = false;
 
-    //stage.addChild(aiPlayer.turrent);
+    stage.addChild(aiPlayer.turrent);
     stage.addChild(aiPlayer.tank);
 }
 
@@ -72,7 +73,7 @@ function createaiPlayer() {
     buildTankShot();
     cloneTankShots();
     buildHealthDrop();
-    //buildaiPlayer();
+    buildaiPlayer();
 }
 
 function damageaiPlayer(dmg) {
@@ -145,12 +146,19 @@ function aiPlayerMovement() {
     if (aiPlayer.moveLeft) {
         aiPlayer.tank.x -= aiPlayer.speed;
         aiPlayer.turrent.x -= aiPlayer.speed;
+    } else {
+
     }
     if (aiPlayer.moveRight) {
         aiPlayer.tank.x += aiPlayer.speed;
         aiPlayer.turrent.x += aiPlayer.speed;
     }
-    aiPlayer.tank.goToAndPlay("move");
+    if (aiPlayer.moveRight || aiPlayer.moveLeft) {
+        aiPlayer.tank.gotoAndPlay("move");
+    } else {
+        aiPlayer.tank.gotoAndStop();
+    }
+
 }
 
 function aiPlayerFuncs() {
