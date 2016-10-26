@@ -8,6 +8,7 @@ function setupGame() {
     //createaiPlayer();
     buildButtons();
     buildScore();
+    buildaiPlayer();
     buildHealthBoard();
     setButtonListeners();
     setButtons();
@@ -49,10 +50,11 @@ function levelOnePlay() {
     //aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
-    hitEnemies();
+    //hitEnemies();
     nextEnemy();
     moveEnemies();
     //aiPlayerFuncs();
+    hidePlayButton();
 }
 
 function gameVictory() {
