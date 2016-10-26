@@ -6,7 +6,7 @@ function setupGame() {
     buildLevelOneScreen();
     createEnemies();
     createaiPlayer();
-    //createaiPlayer();
+    createaiPlayer();
     buildButtons();
     buildScore();
     buildaiPlayer();
@@ -38,7 +38,7 @@ function levelOneView() {
         hideInstructionButton();
         showLevelOneScreen();
         resetEnemies();
-        //resetaiPlayer();
+        resetaiPlayer();
         showScore();
         showHealthBoard();
         showPlayButton();
@@ -51,7 +51,7 @@ function levelOnePlay() {
     aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
-    //hitEnemies();
+    hitEnemies();
     nextEnemy();
     moveEnemies();
     aiPlayerFuncs();
@@ -65,7 +65,7 @@ function gameVictory() {
 }
 
 function gameOver() {
-    //hideaiPlayer();
+    hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
 }
