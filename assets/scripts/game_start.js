@@ -2,8 +2,8 @@ function setupGame() {
     buildTitle();
     buildInstructionScreen();
     buildLevelOneScreen();
-    initEnemies();
-    initPlayer();
+    createEnemies();
+    //createPlayer();
     buildButtons();
     buildScore();
     buildHealthBoard();

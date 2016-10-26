@@ -20,7 +20,7 @@ var player = {
 };
 
 function buildPlayer() {
-    player.tank = new creajs.SpriteSheet({
+    player.tank = new createjs.SpriteSheet({
         images: [queue.getResult("tanks")],
         frames: {
             width: 80,
@@ -35,11 +35,9 @@ function buildPlayer() {
             move: [0, 1, "move", .5]
         }
     });
-    player.tank.regX = player.tank.getBounds().width / 2;
-    player.tank.regY = player.tank.getBounds().height / 2;
     player.tank.visible = false;
 
-    player.turrent = new creatjs.Bitmap(queue.getResult("turrent"));
+    player.turrent = new createjs.Bitmap(queue.getResult("turrent"));
     player.turrent.regX = player.turrent.getBounds().width / 2;
     player.turrent.regY = (player.turrent.getBounds().height / 4) * 3;
     player.turrent.visible = false;
@@ -49,7 +47,7 @@ function buildPlayer() {
 }
 
 function buildTankShot() {
-    player.shot = new creatjs.Bitmap(queue.getResult("tankshot"));
+    player.shot = new createjs.Bitmap(queue.getResult("tankshot"));
     player.shot.regX = player.shot.getBounds().width / 2;
     player.shot.regY = player.shot.getBounds().height / 2;
     player.shot.visible = false;
@@ -64,13 +62,13 @@ function cloneTankShots() {
 }
 
 function buildHealthDrop() {
-    player.healthDrop = new creatjs.Bitmap(queue.getResult("healthDrop"));
+    player.healthDrop = new createjs.Bitmap(queue.getResult("healthDrop"));
     player.healthDrop.regX = player.healthDrop.getBounds().width / 2;
     player.healthDrop.regY = player.healthDrop.getBounds().height / 2;
     player.healthDrop.visible = false;
 }
 
-function initPlayer() {
+function createPlayer() {
     buildTankShot();
     cloneTankShots();
     buildHealthDrop();

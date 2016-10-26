@@ -177,7 +177,7 @@ function cloneEnemies() {
     cloneMotherShipShot();
 }
 
-function initEnemies() {
+function createEnemies() {
     buildEnemies();
     cloneEnemies();
 }
@@ -391,7 +391,7 @@ function moveMotherShips() {
 function moveEnemies() {
     moveBattlers();
     moveSpeeders();
-    moveMotherShips():
+    moveMotherShips();
 }
 
 function nextEnemy() {
@@ -560,7 +560,7 @@ function moveSpeederShots() {
 function fireEnemyShots() {
     fireBattlerShot();
     fireSpeederShot();
-    fireMothershipShot():
+    fireMothershipShot();
 }
 
 function moveEnemyShots() {
