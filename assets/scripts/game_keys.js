@@ -15,13 +15,13 @@ function handleKeyDown(evt) {
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
-        console.log(evt.keyCode + " down");
+        player.moveLeft = true;
         return false;
     case KEYCODE_UP:
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_RIGHT:
-        console.log(evt.keyCode + " down");
+        player.moveRight = true;
         return false;
     case KEYCODE_DOWN:
         console.log(evt.keyCode + " down");
@@ -30,13 +30,15 @@ function handleKeyDown(evt) {
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_A:
-        console.log(evt.keyCode + " down");
+        player.moveLeft = true;
         return false;
     case KEYCODE_S:
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_D:
-        console.log(evt.keyCode + " down");
+        player.moveRight = true;
+        return false;
+    case KEYCODE_SPACE:
         return false;
     }
 }
@@ -47,13 +49,13 @@ function handleKeyUp(evt) {
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
-        console.log(evt.keyCode + " up");
+        player.moveLeft = false;
         return false;
     case KEYCODE_UP:
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_RIGHT:
-        console.log(evt.keyCode + " up");
+        player.moveRight = false;
         return false;
     case KEYCODE_DOWN:
         console.log(evt.keyCode + " up");
@@ -62,13 +64,16 @@ function handleKeyUp(evt) {
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_A:
-        console.log(evt.keyCode + " up");
+        player.moveLeft = false;
         return false;
     case KEYCODE_S:
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_D:
-        console.log(evt.keyCode + " up");
+        player.moveRight = false;
+        return false;
+    case KEYCODE_SPACE:
+        player.fire = true;
         return false;
     }
 }
