@@ -37,10 +37,12 @@ function buildaiPlayer() {
     });
     aiPlayer.tank = new createjs.Sprite(t);
     aiPlayer.tank.visible = false;
+    aiPlayer.tank.regX = aiPlayer.tank.getBounds().width / 2;
+    aiPlayer.tank.regY = aiPlayer.tank.getBounds().height / 2;
 
     aiPlayer.turrent = new createjs.Bitmap(queue.getResult("turrent"));
     aiPlayer.turrent.regX = aiPlayer.turrent.getBounds().width / 2;
-    aiPlayer.turrent.regY = (aiPlayer.turrent.getBounds().height / 2) / 2;
+    aiPlayer.turrent.regY = aiPlayer.turrent.getBounds().height / 2;
     aiPlayer.turrent.visible = false;
 
     stage.addChild(aiPlayer.turrent);
