@@ -396,7 +396,7 @@ function damageUfoHealth(ufo, dmg) {
     if (ufo.health <= 0) {
         ufo.visible = false;
     }
-    playExplosion(ufo.boom);
+    playExplosion(ufo.boom, ufo.x, ufo.y);
 }
 
 function fireBattlerShot() {

@@ -103,6 +103,9 @@ var manifest = [{
         src: "images/menuButton.png",
         id: "menuButton"
 }, {
+        src: "images/healthDrop.png",
+        id: "healthDrop"
+}, {
         src: "scripts/game_loop.js"
 }
 
