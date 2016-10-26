@@ -46,13 +46,13 @@ function levelOneView() {
 
 function levelOnePlay() {
     enemyBeat();
-    //aiPlayerLost();
+    aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     hitEnemies();
     nextEnemy();
     moveEnemies();
-    //aiPlayerFuncs();
+    aiPlayerFuncs();
 }
 
 function gameVictory() {

@@ -5,16 +5,53 @@
 </head>
 
 <body>
-    <p id="test">
-    </p>
+    <canvas id="game"></canvas>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
     <script>
-        var i = 0;
+        var manifest = [{
+                src: "images/tanks.png",
+                id: "tanks"
+            }],
+            queue,
+            stage,
+            tank;
 
-        function addOne() {
-            i += 1;
-            console.log(i);
+        function setupCanvas() {
+            var canvas = document.getElementById("game");
+            canvas.width = 800;
+            canvas.height = 600;
+            stage = new createjs.Stage(canvas);
         }
-        setInterval(addOne, 1000);
+
+        function loadComplete(evt) {
+            tank = new createjs.SpriteSheet({
+                images: [queue.getResult("tanks")],
+                frames: {
+                    width: 80,
+                    height: 34,
+                    count: 2,
+                    regX: 0,
+                    regY: 0,
+                    spacing: 3,
+                    margin: 0
+                },
+                animations: {
+                    move: [0, 1, "move", 0.5]
+                }
+            });
+            tank.visible = true;
+            tank.x = 400;
+            tank.y = 300;
+            tank.goToAndPlay("move");
+        }
+
+        function loadFiles() {
+            queue = new createjs.LoadQueue(true, "assets/");
+            queue.on("complete", loadComplete, this);
+            queue.loadManifest(manifest);
+        }
+
+        setupCanvas();
     </script>
 </body>
 
