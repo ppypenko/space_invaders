@@ -72,7 +72,7 @@ function createaiPlayer() {
     buildTankShot();
     cloneTankShots();
     buildHealthDrop();
-    buildaiPlayer();
+    //buildaiPlayer();
 }
 
 function damageaiPlayer(dmg) {

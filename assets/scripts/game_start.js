@@ -39,9 +39,9 @@ function levelOneView() {
         //resetaiPlayer();
         showScore();
         showHealthBoard();
+        showPlayButton();
         GAME_STATES.GAME_ON = true;
     }
-    showPlayButton();
 }
 
 function levelOnePlay() {
@@ -75,10 +75,10 @@ function levelThreeView() {
     showLevelThreeScreen();
 }
 
-function victoryView(){
-    
+function victoryView() {
+
 }
 
-function gameOverView(){
-    
+function gameOverView() {
+
 }

@@ -86,7 +86,7 @@ function buildBattlerUfo() {
 }
 
 function buildBattlerShot() {
-    enemy.battlerUfo.shot = new createjs.Bitmap(queue.getResult("battler"));
+    enemy.battlerUfo.shot = new createjs.Bitmap(queue.getResult("battlershot"));
     enemy.battlerUfo.shot.regX = enemy.battlerUfo.shot.getBounds().width / 2;
     enemy.battlerUfo.shot.regY = enemy.battlerUfo.shot.getBounds().height / 2;
     enemy.battlerUfo.shot.visible = false;
