@@ -11,17 +11,17 @@ var KEYCODE_LEFT = 37,
 
 function handleKeyDown(evt) {
     if (!evt) {
-        var evt = window.event
+        var evt = window.event;
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
-        player.moveLeft = true;
+        aiPlayer.moveLeft = true;
         return false;
     case KEYCODE_UP:
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_RIGHT:
-        player.moveRight = true;
+        aiPlayer.moveRight = true;
         return false;
     case KEYCODE_DOWN:
         console.log(evt.keyCode + " down");
@@ -30,13 +30,13 @@ function handleKeyDown(evt) {
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_A:
-        player.moveLeft = true;
+        aiPlayer.moveLeft = true;
         return false;
     case KEYCODE_S:
         console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_D:
-        player.moveRight = true;
+        aiPlayer.moveRight = true;
         return false;
     case KEYCODE_SPACE:
         return false;
@@ -45,17 +45,17 @@ function handleKeyDown(evt) {
 
 function handleKeyUp(evt) {
     if (!evt) {
-        var evt = window.event
+        var evt = window.event;
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
-        player.moveLeft = false;
+        aiPlayer.moveLeft = false;
         return false;
     case KEYCODE_UP:
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_RIGHT:
-        player.moveRight = false;
+        aiPlayer.moveRight = false;
         return false;
     case KEYCODE_DOWN:
         console.log(evt.keyCode + " up");
@@ -64,16 +64,16 @@ function handleKeyUp(evt) {
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_A:
-        player.moveLeft = false;
+        aiPlayer.moveLeft = false;
         return false;
     case KEYCODE_S:
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_D:
-        player.moveRight = false;
+        aiPlayer.moveRight = false;
         return false;
     case KEYCODE_SPACE:
-        player.fire = true;
+        aiPlayer.fire = true;
         return false;
     }
 }

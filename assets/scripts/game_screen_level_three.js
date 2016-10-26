@@ -2,7 +2,7 @@
 
 var levelThreeScreen;
 
-function buildLevelThreeScreen(){
+function buildLevelThreeScreen() {
     levelThreeScreen = new createjs.Bitmap(queue.getResult("levelThree"));
     levelThreeScreen.x = 0;
     levelThreeScreen.y = 0;
@@ -10,10 +10,10 @@ function buildLevelThreeScreen(){
     stage.update(levelThreeScreen);
 }
 
-function showLevelThreeScreen(){
+function showLevelThreeScreen() {
     levelThreeScreen.visible = true;
 }
 
-function hideLevelThreeScreen(){
+function hideLevelThreeScreen() {
     levelThreeScreen.visible = false;
 }

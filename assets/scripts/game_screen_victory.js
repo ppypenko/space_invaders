@@ -2,7 +2,7 @@
 
 var victoryScreen;
 
-function buildVictoryScreen(){
+function buildVictoryScreen() {
     victoryScreen = new createjs.Bitmap(queue.getResult("victory"));
     victoryScreen.x = 0;
     victoryScreen.y = 0;
@@ -10,10 +10,10 @@ function buildVictoryScreen(){
     stage.update(victoryScreen);
 }
 
-function showVictoryScreen(){
+function showVictoryScreen() {
     victoryScreen.visible = true;
 }
 
-function hideVictoryScreen(){
+function hideVictoryScreen() {
     victoryScreen.visible = false;
 }

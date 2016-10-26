@@ -10,10 +10,10 @@ function buildCreditsScreen() {
     stage.addChild(creditsScreen);
 }
 
-function showCreditsScreen(){
+function showCreditsScreen() {
     creditsScreen.visible = true;
 }
 
-function hideCreditsScreen(){
+function hideCreditsScreen() {
     creditsScreen.visible = false;
 }
