@@ -8,13 +8,12 @@ function buildInstructionScreen() {
     instructionScreen.y = 0;
     instructionScreen.visible = false;
     stage.addChild(instructionScreen);
-    stage.update();
 }
 
-function showTitle(){
+function showInstructionScreen(){
     instructionScreen.visible = true;
 }
 
-function hideTitle(){
+function hideInstructionScreen(){
     instructionScreen.visible = false;
 }

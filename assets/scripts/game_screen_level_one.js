@@ -7,7 +7,7 @@ function buildLevelOneScreen(){
     levelOneScreen.x = 0;
     levelOneScreen.y = 0;
     levelOneScreen.visible = false;
-    stage.update(levelOneScreen);
+    stage.addChild(levelOneScreen);
 }
 
 function showLevelOneScreen(){

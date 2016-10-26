@@ -36,20 +36,21 @@ function buildButtons() {
     btn.Menu = new createjs.Sprite(btnSheet[1]);
     btn.Instruct = new createjs.Sprite(btnSheet[2]);
     btn.Continue = new createjs.Sprite(btnSheet[3]);
-    btn.PlayGame = new createjs.Sprite(btnSheet[4]);
+    setButtonListeners();
+    setButtons();
 }
 
 function setButtons() {
     btn.Play.x = 354;
     btn.Continue.x = 354;
     btn.Instruct.x = 300;
-    btn.Menu.x = 257;
+    btn.Menu.x = 300;
     btn.PlayGame.x = 300;
 
     btn.Play.y = 284;
     btn.Continue.y = 400;
     btn.Instruct.y = 500;
-    btn.Menu.y = 538;
+    btn.Menu.y = 450;
     btn.PlayGame.y = 450;
 
     btn.Play.visible = false;
@@ -70,7 +71,8 @@ function setButtonListeners() {
 
     btn.Play.on("click", function (evt) {
         btn.Play.gotoAndPlay("btnOff");
-        gameStart();
+        console.log("play button pressed");
+        
     });
     btn.Play.on("mouseover", function (evt) {
         btn.Play.gotoAndPlay("btnHov");
@@ -98,6 +100,7 @@ function setButtonListeners() {
 
     btn.Instruct.on("click", function (evt) {
         btn.Instruct.gotoAndPlay("btnOff");
+        console.log("instruction button pressed");
         gameInstructions();
     });
     btn.Instruct.on("mouseover", function (evt) {
@@ -112,6 +115,7 @@ function setButtonListeners() {
 
     btn.Continue.on("click", function (evt) {
         btn.Continue.gotoAndPlay("btnOff");
+        console.log("button continue pressed");
         gameContinue();
     });
     btn.Continue.on("mouseover", function (evt) {
@@ -126,6 +130,7 @@ function setButtonListeners() {
 
     btn.PlayGame.on("click", function (evt) {
         btn.PlayGame.gotoAndPlay("btnOff");
+        console.log("play button pressed");
         gameStart();
     });
     btn.PlayGame.on("mouseover", function (evt) {

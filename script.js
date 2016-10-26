@@ -71,7 +71,7 @@ var manifest = [{
         id: "title"
 }, {
         src: "images/instructions.png",
-        id: "instructions"
+        id: "instruction"
 }, {
         src: "images/levelOne.png",
         id: "levelOne"

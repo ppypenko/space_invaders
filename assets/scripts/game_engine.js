@@ -10,7 +10,7 @@ function menu() {
         titleScreenView();
         break;
     case GAME_STATES.INSTRUCTIONS:
-        gameInstructions();
+        instructionScreenView();
         break;
     case GAME_STATES.CREDITS:
         gameCredits();
@@ -28,7 +28,7 @@ function menu() {
         gamePause();
         break;
     case GAME_STATES.START:
-
+        levelOneView();
         break;
     default:
         break;
