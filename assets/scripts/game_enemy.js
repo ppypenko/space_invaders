@@ -412,7 +412,7 @@ function nextEnemy() {
     }
 }
 
-function hitUfos(ufo, aiPlayer) {
+function hitUfos(ufo) {
     var i = 0,
         e = 0,
         pt;
@@ -422,6 +422,7 @@ function hitUfos(ufo, aiPlayer) {
                 pt = ufo.ufoClones[i].globalToLocal(aiPlayer.shotClones[e].x, aiPlayer.shotClones[e].y);
                 if (ufo.ufoClones[i].hitTest(pt.x, pt.y)) {
                     aiPlayer.shotClones[e].visible = false;
+                    ufo.ufoClones[i].visible = false;
                     damageUfoHealth(ufo.ufoClones[i], aiPlayer.damage, ufo.points, ufo.boom);
                 }
             }
@@ -430,15 +431,15 @@ function hitUfos(ufo, aiPlayer) {
 }
 
 function hitBattlers() {
-    hitUfos(enemy.battlerUfo, aiPlayer);
+    hitUfos(enemy.battlerUfo);
 }
 
 function hitSpeeders() {
-    hitUfos(enemy.speederUfo, aiPlayer);
+    hitUfos(enemy.speederUfo);
 }
 
 function hitMotherships() {
-    hitUfos(enemy.mothershipUfo, aiPlayer);
+    hitUfos(enemy.mothershipUfo);
 }
 
 function hitEnemies() {
