@@ -22,7 +22,7 @@ function menu() {
         gameVictory();
         break;
     case GAME_STATES.CONTINUE:
-        gameContinue();
+        levelOnePlay();
         break;
     case GAME_STATES.PAUSE:
         gamePause();

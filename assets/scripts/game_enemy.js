@@ -13,7 +13,8 @@ var enemy = {
         shotSpeed: 10,
         shotDamage: 5,
         points: 100,
-        boom: 2
+        boom: 2,
+        show: false
     },
     battlerUfo: {
         ufo: {},
@@ -28,7 +29,8 @@ var enemy = {
         fireChance: 800,
         moveLeft: false,
         points: 10,
-        boom: 0
+        boom: 0,
+        show: true
     },
     speederUfo: {
         ufo: {},
@@ -43,7 +45,8 @@ var enemy = {
         fireChance: 800,
         moveLeft: false,
         points: 5,
-        boom: 1
+        boom: 1,
+        show: false
     }
 };
 
@@ -174,7 +177,7 @@ function cloneEnemies() {
     cloneMotherShipShot();
 }
 
-function InitEnemies() {
+function createEnemies() {
     buildEnemies();
     cloneEnemies();
 }
@@ -362,23 +365,50 @@ function moveSpeeders() {
 function moveMotherShips() {
     var i = 0;
     for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
-        if (enemy.mothershipUfo.ufoClones[i].y < 100) {
-            enemy.mothershipUfo.ufoClones[i].y += enemy.mothershipUfo.ufoSpeed;
-        } else {
-            if (player.tank.x < enemy.mothershipUfo.ufoClones[i].x) {
-                if (player.tank.x < enemy.mothershipUfo.ufoClones[i].x - enemy.mothershipUfo.ufoSpeed) {
-                    enemy.mothershipUfo.ufoClones[i].x -= 1;
-                } else {
-                    enemy.mothershipUfo.ufoClones[i].x -= enemy.mothershipUfo.ufoSpeed;
-                }
-            } else if (player.tank.x > enemy.mothershipUfo.ufoClones[i].x) {
-                if (player.tank.x > enemy.mothershipUfo.ufoClones[i].x - enemy.mothershipUfo.ufoSpeed) {
-                    enemy.mothershipUfo.ufoClones[i].x += 1;
-                } else {
-                    enemy.mothershipUfo.ufoClones[i].x += enemy.mothershipUfo.ufoSpeed;
+        if (enemy.mothershipUfo.ufoClones[i].visible) {
+            if (enemy.mothershipUfo.ufoClones[i].y < 100) {
+                enemy.mothershipUfo.ufoClones[i].y += enemy.mothershipUfo.ufoSpeed;
+            } else {
+                if (player.tank.x < enemy.mothershipUfo.ufoClones[i].x) {
+                    if (player.tank.x < enemy.mothershipUfo.ufoClones[i].x - enemy.mothershipUfo.ufoSpeed) {
+                        enemy.mothershipUfo.ufoClones[i].x -= 1;
+                    } else {
+                        enemy.mothershipUfo.ufoClones[i].x -= enemy.mothershipUfo.ufoSpeed;
+                    }
+                } else if (player.tank.x > enemy.mothershipUfo.ufoClones[i].x) {
+                    if (player.tank.x > enemy.mothershipUfo.ufoClones[i].x - enemy.mothershipUfo.ufoSpeed) {
+                        enemy.mothershipUfo.ufoClones[i].x += 1;
+                    } else {
+                        enemy.mothershipUfo.ufoClones[i].x += enemy.mothershipUfo.ufoSpeed;
+                    }
                 }
             }
         }
+
+    }
+}
+
+function moveEnemies() {
+    moveBattlers();
+    moveSpeeders();
+    moveMotherShips();
+}
+
+function nextEnemy() {
+    if (enemy.battlerUfo.show) {
+        showBattlers();
+        enemy.battlerUfo.show = false;
+    } else if (enemy.speederUfo.show) {
+        showSpeeders();
+        enemy.speederUfo.show = false;
+    } else if (enemy.mothershipUfo.show) {
+        showMotherShips();
+        enemy.mothershipUfo.show = false;
+    }
+    if (ufosBeat(enemy.battlerUfo)) {
+        enemy.speederUfo.show = true;
+    } else if (ufosBeat(enemy.speederUfo)) {
+        enemy.mothershipUfo.show = true;
     }
 }
 
@@ -400,15 +430,15 @@ function hitUfos(ufo, player) {
 }
 
 function hitBattlers() {
-    hitUfos(enemy.battlerUfo, player.tank);
+    hitUfos(enemy.battlerUfo, player);
 }
 
 function hitSpeeders() {
-    hitUfos(enemy.speederUfo, player.tank);
+    hitUfos(enemy.speederUfo, player);
 }
 
 function hitMotherships() {
-    hitUfos(enemy.mothershipUfo, player.tank);
+    hitUfos(enemy.mothershipUfo, player);
 }
 
 function hitEnemies() {
@@ -525,6 +555,12 @@ function moveBattlerShots() {
 
 function moveSpeederShots() {
     moveShots(enemy.speederUfo);
+}
+
+function fireEnemyShots() {
+    fireBattlerShot();
+    fireSpeederShot();
+    fireMothershipShot();
 }
 
 function moveEnemyShots() {
