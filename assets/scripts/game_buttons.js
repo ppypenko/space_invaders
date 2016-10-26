@@ -100,7 +100,6 @@ function setButtonListeners() {
 
     btn.Instruct.on("click", function (evt) {
         btn.Instruct.gotoAndPlay("btnOff");
-        console.log("instruction button pressed");
         gameInstructions();
     });
     btn.Instruct.on("mouseover", function (evt) {

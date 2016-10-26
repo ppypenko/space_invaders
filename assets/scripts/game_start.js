@@ -43,12 +43,10 @@ function levelThreeView() {
     showLevelThreeScreen();
 }
 
-//timerText = new createjs.Text("Score: ", score, "24px Sans-Serif", "#fff");
-//timertext.x = 0;
-//timerText.y = 0;
-//timerText.visible = false;
-//stage.addChild(timerText);
-//
-//
-//score += points;
-//timerText.text = "Score: " + score;
+function victoryView(){
+    
+}
+
+function gameOverView(){
+    
+}
