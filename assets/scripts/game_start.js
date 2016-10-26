@@ -37,6 +37,7 @@ function levelOneView() {
     resetPlayer();
     showScore();
     showHealthBoard();
+    showPlayButton();
 }
 
 function levelOnePlay() {
