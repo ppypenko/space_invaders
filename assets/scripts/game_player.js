@@ -160,8 +160,8 @@ function playerFuncs() {
 }
 
 function buildScore(){
-    player.scoreBoard = new createjs.Text("Score: ", player.score, "48px Sans-Serif", "#fff");
-    player.scoreBoard.x = 700;
+    player.scoreBoard = new createjs.Text("Score: ", "bold 28px Arial", "#ffffff");
+    player.scoreBoard.x = 625;
     player.scoreBoard.y = 10;
     player.scoreBoard.visible = false;
     stage.addChild(player.scoreBoard);
@@ -176,7 +176,7 @@ function hideScore(){
 }
 
 function buildHealthBoard(){
-    player.healthBoard = new createjs.Text("Health: ", player.healthBoard, "48px Sans-Serif", "#fff");
+    player.healthBoard = new createjs.Text("Health: ", "bold 28px Arial", "#ffffff");
     player.healthBoard.x = 50;
     player.healthBoard.y = 10;
     player.healthBoard.visible = false;
