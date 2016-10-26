@@ -200,10 +200,33 @@ function hideMotherShips() {
     }
 }
 
+function hideMothershipShots() {
+    var i = 0,
+        e = 0,
+        u = 0;
+    for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
+        for (e = 0; e < enemy.mothershipUfo.shotCloneSize; e += 1) {
+            for (u = 0; u < enemy.mothershipUfo.shotCloneSpread; u += 1) {
+                enemy.mothershipUfo.shotClones[i][e][u].visible = false;
+            }
+        }
+    }
+}
+
+function hideShots(ufo) {
+    var i = 0;
+    for (i = 0; i < ufo.cloneSize; i += 1) {
+        ufo.shotClones[i].visible = false;
+    }
+}
+
 function hideEnemies() {
     hideBattlers();
     hideSpeeders();
     hideMotherShips();
+    hideMothershipShots();
+    hideShots(enemy.battlerUfo);
+    hideShots(enemy.speederUfo);
 }
 
 function showBattlers() {
