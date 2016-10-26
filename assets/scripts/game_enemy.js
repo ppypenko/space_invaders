@@ -21,7 +21,7 @@ var enemy = {
         shot: {},
         ufoClones: [],
         shotClones: [],
-        cloneSize: 200,
+        cloneSize: 75,
         ufoSpeed: 5,
         health: 1,
         shotSpeed: 10,
@@ -37,7 +37,7 @@ var enemy = {
         shot: {},
         ufoClones: [],
         shotClones: [],
-        cloneSize: 100,
+        cloneSize: 50,
         ufoSpeed: 10,
         health: 3,
         shotSpeed: 15,
@@ -572,7 +572,7 @@ function moveEnemyShots() {
 function moveShots(ufo) {
     var i = 0;
     for (i = 0; i < ufo.cloneSize; i += 1) {
-        if (ufoshotClones[i].visible) {
+        if (ufo.shotClones[i].visible) {
             ufo.shotClones[i].y += ufo.shotSpeed;
         }
         if (ufo.shotClones[i].y > 600) {

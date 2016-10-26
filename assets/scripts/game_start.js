@@ -5,7 +5,7 @@ function setupGame() {
     buildInstructionScreen();
     buildLevelOneScreen();
     createEnemies();
-    createaiPlayer();
+    //createaiPlayer();
     buildButtons();
     buildScore();
     buildHealthBoard();
@@ -36,7 +36,7 @@ function levelOneView() {
         hideInstructionButton();
         showLevelOneScreen();
         resetEnemies();
-        resetaiPlayer();
+        //resetaiPlayer();
         showScore();
         showHealthBoard();
         GAME_STATES.GAME_ON = true;
@@ -46,13 +46,13 @@ function levelOneView() {
 
 function levelOnePlay() {
     enemyBeat();
-    aiPlayerLost();
+    //aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     hitEnemies();
     nextEnemy();
     moveEnemies();
-    aiPlayerFuncs();
+    //aiPlayerFuncs();
 }
 
 function gameVictory() {
@@ -62,7 +62,7 @@ function gameVictory() {
 }
 
 function gameOver() {
-    hideaiPlayer();
+    //hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
 }
