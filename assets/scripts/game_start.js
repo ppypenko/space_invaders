@@ -39,20 +39,20 @@ function levelOneView() {
         resetaiPlayer();
         showScore();
         showHealthBoard();
+        showPlayButton();
         GAME_STATES.GAME_ON = true;
     }
-    showPlayButton();
 }
 
 function levelOnePlay() {
     enemyBeat();
-    aiPlayerLost();
+    //aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     hitEnemies();
     nextEnemy();
     moveEnemies();
-    aiPlayerFuncs();
+    //aiPlayerFuncs();
 }
 
 function gameVictory() {
@@ -75,10 +75,10 @@ function levelThreeView() {
     showLevelThreeScreen();
 }
 
-function victoryView(){
-    
+function victoryView() {
+
 }
 
-function gameOverView(){
-    
+function gameOverView() {
+
 }

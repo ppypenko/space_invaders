@@ -37,7 +37,7 @@ function buildButtons() {
     btn.Instruct = new createjs.Sprite(btnSheet[2]);
     btn.Continue = new createjs.Sprite(btnSheet[3]);
     btn.PlayGame = new createjs.Sprite(btnSheet[4]);
-    
+
 }
 
 function setButtons() {
@@ -71,8 +71,7 @@ function setButtonListeners() {
 
     btn.Play.on("click", function (evt) {
         btn.Play.gotoAndPlay("btnOff");
-        console.log("play button pressed");
-        
+        gameContinue();
     });
     btn.Play.on("mouseover", function (evt) {
         btn.Play.gotoAndPlay("btnHov");
