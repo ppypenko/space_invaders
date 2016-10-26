@@ -9,7 +9,7 @@ var enemy = {
         shotCloneSize: 5,
         shotCloneSpread: 5,
         ufoSpeed: 5,
-        health: 50,
+        health: 20,
         shotSpeed: 10,
         shotDamage: 5,
         points: 100,

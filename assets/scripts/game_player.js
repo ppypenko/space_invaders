@@ -173,7 +173,7 @@ function aiPlayerFuncs() {
 
 function resetaiPlayer() {
     aiPlayer.tank.x = 400;
-    aiPlayer.turrent.x = 440;
+    aiPlayer.turrent.x = 400;
     aiPlayer.tank.y = 570;
     aiPlayer.turrent.y = 545;
     aiPlayer.tank.visible = true;
