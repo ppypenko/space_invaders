@@ -43,6 +43,9 @@ function buildPlayer() {
     player.turrent.regX = player.turrent.getBounds().width / 2;
     player.turrent.regY = (player.turrent.getBounds().height / 4) * 3;
     player.turrent.visible = false;
+
+    stage.addChild(player.turrent);
+    stage.addChild(player.tank);
 }
 
 function buildTankShot() {
@@ -68,10 +71,10 @@ function buildHealthDrop() {
 }
 
 function initPlayer() {
-    buildPlayer();
     buildTankShot();
     cloneTankShots();
     buildHealthDrop();
+    buildPlayer();
 }
 
 function damagePlayer(dmg) {
@@ -159,7 +162,25 @@ function playerFuncs() {
     playerMovement();
 }
 
-function buildScore(){
+function resetPlayer() {
+    player.tank.x = 400;
+    player.turrent.x = 400;
+    player.tank.y = 570;
+    player.turrent.y = 565;
+    player.tank.visible = true;
+    player.turrent.visible = true;
+}
+
+function hidePlayer() {
+    var i = 0;
+    player.tank.visible = false;
+    player.turrent.visible = false;
+    for (i = 0; i < player.cloneSize; i += 1) {
+        player.shotClones[i].visible = false;
+    }
+}
+
+function buildScore() {
     player.scoreBoard = new createjs.Text("Score: ", "bold 28px Arial", "#ffffff");
     player.scoreBoard.x = 625;
     player.scoreBoard.y = 10;
@@ -167,15 +188,15 @@ function buildScore(){
     stage.addChild(player.scoreBoard);
 }
 
-function showScore(){
+function showScore() {
     player.scoreBoard.visible = true;
 }
 
-function hideScore(){
+function hideScore() {
     player.scoreBoard.visible = false;
 }
 
-function buildHealthBoard(){
+function buildHealthBoard() {
     player.healthBoard = new createjs.Text("Health: ", "bold 28px Arial", "#ffffff");
     player.healthBoard.x = 50;
     player.healthBoard.y = 10;
@@ -183,15 +204,15 @@ function buildHealthBoard(){
     stage.addChild(player.healthBoard);
 }
 
-function showHealthBoard(){
+function showHealthBoard() {
     player.healthBoard.visible = true;
 }
 
-function hideHealthBoard(){
+function hideHealthBoard() {
     player.healthBoard.visible = false;
 }
 
-function calculateScore(points){
+function calculateScore(points) {
     player.score += points;
     player.scoreBoard.text = "Score: " + player.score;
 }
