@@ -41,7 +41,7 @@ function buildButtons() {
 }
 
 function setButtons() {
-    btn.Play.x = 354;
+    btn.Play.x = 300;
     btn.Continue.x = 354;
     btn.Instruct.x = 300;
     btn.Menu.x = 300;

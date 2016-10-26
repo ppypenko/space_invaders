@@ -1,15 +1,16 @@
+"use strict";
+
 function setupGame() {
     buildTitle();
     buildInstructionScreen();
     buildLevelOneScreen();
     createEnemies();
-    //createPlayer();
+    createaiPlayer();
     buildButtons();
     buildScore();
     buildHealthBoard();
     setButtonListeners();
     setButtons();
-
 }
 
 function titleScreenView() {
@@ -29,36 +30,39 @@ function instructionScreenView() {
 }
 
 function levelOneView() {
-    hideTitle();
-    hidePlayGameButton();
-    hideInstructionButton();
-    showLevelOneScreen();
-    resetEnemies();
-    resetPlayer();
-    showScore();
-    showHealthBoard();
+    if (!GAME_STATES.GAME_ON) {
+        hideTitle();
+        hidePlayGameButton();
+        hideInstructionButton();
+        showLevelOneScreen();
+        resetEnemies();
+        resetaiPlayer();
+        showScore();
+        showHealthBoard();
+        GAME_STATES.GAME_ON = true;
+    }
     showPlayButton();
 }
 
 function levelOnePlay() {
     enemyBeat();
-    playerLost();
+    aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     hitEnemies();
     nextEnemy();
     moveEnemies();
-    playerFuncs();
+    aiPlayerFuncs();
 }
 
 function gameVictory() {
-    hidePlayer();
+    hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
 }
 
 function gameOver() {
-    hidePlayer();
+    hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
 }

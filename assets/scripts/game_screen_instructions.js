@@ -10,10 +10,10 @@ function buildInstructionScreen() {
     stage.addChild(instructionScreen);
 }
 
-function showInstructionScreen(){
+function showInstructionScreen() {
     instructionScreen.visible = true;
 }
 
-function hideInstructionScreen(){
+function hideInstructionScreen() {
     instructionScreen.visible = false;
 }

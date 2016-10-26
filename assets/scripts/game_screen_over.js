@@ -2,7 +2,7 @@
 
 var gameOverScreen;
 
-function buildGameOverScreen(){
+function buildGameOverScreen() {
     gameOverScreen = new createjs.Bitmap(queue.getResult("gameOver"));
     gameOverScreen.x = 0;
     gameOverScreen.y = 0;
@@ -10,10 +10,10 @@ function buildGameOverScreen(){
     stage.update(gameOverScreen);
 }
 
-function showGameOverScreen(){
+function showGameOverScreen() {
     gameOverScreen.visible = true;
 }
 
-function hideGameOverScreen(){
+function hideGameOverScreen() {
     gameOverScreen.visible = false;
 }

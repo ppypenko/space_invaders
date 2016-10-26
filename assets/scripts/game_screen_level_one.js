@@ -2,7 +2,7 @@
 
 var levelOneScreen;
 
-function buildLevelOneScreen(){
+function buildLevelOneScreen() {
     levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
     levelOneScreen.x = 0;
     levelOneScreen.y = 0;
@@ -10,10 +10,10 @@ function buildLevelOneScreen(){
     stage.addChild(levelOneScreen);
 }
 
-function showLevelOneScreen(){
+function showLevelOneScreen() {
     levelOneScreen.visible = true;
 }
 
-function hideLevelOneScreen(){
+function hideLevelOneScreen() {
     levelOneScreen.visible = false;
 }

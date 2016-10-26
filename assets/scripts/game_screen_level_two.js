@@ -2,7 +2,7 @@
 
 var levelTwoScreen;
 
-function buildLevelTwoScreen(){
+function buildLevelTwoScreen() {
     levelTwoScreen = new createjs.Bitmap(queue.getResult("levelTwo"));
     levelTwoScreen.x = 0;
     levelTwoScreen.y = 0;
@@ -10,10 +10,10 @@ function buildLevelTwoScreen(){
     stage.update(levelTwoScreen);
 }
 
-function showLevelTwoScreen(){
+function showLevelTwoScreen() {
     levelTwoScreen.visible = true;
 }
 
-function hideLevelTwoScreen(){
+function hideLevelTwoScreen() {
     levelTwoScreen.visible = false;
 }
