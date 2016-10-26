@@ -36,8 +36,8 @@ function buildButtons() {
     btn.Menu = new createjs.Sprite(btnSheet[1]);
     btn.Instruct = new createjs.Sprite(btnSheet[2]);
     btn.Continue = new createjs.Sprite(btnSheet[3]);
-    setButtonListeners();
-    setButtons();
+    btn.PlayGame = new createjs.Sprite(btnSheet[4]);
+    
 }
 
 function setButtons() {

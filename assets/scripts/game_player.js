@@ -9,6 +9,8 @@ var player = {
     damage: 1,
     health: 3,
     score: 0,
+    scoreBoard: {},
+    healthBoard: {},
     healthDropChance: 50,
     moveLeft: false,
     moveRight: false,
@@ -155,4 +157,41 @@ function playerFuncs() {
     playerFire();
     playerMoveShot();
     playerMovement();
+}
+
+function buildScore(){
+    player.scoreBoard = new createjs.Text("Score: ", player.score, "48px Sans-Serif", "#fff");
+    player.scoreBoard.x = 700;
+    player.scoreBoard.y = 10;
+    player.scoreBoard.visible = false;
+    stage.addChild(player.scoreBoard);
+}
+
+function showScore(){
+    player.scoreBoard.visible = true;
+}
+
+function hideScore(){
+    player.scoreBoard.visible = false;
+}
+
+function buildHealthBoard(){
+    player.healthBoard = new createjs.Text("Health: ", player.healthBoard, "48px Sans-Serif", "#fff");
+    player.healthBoard.x = 50;
+    player.healthBoard.y = 10;
+    player.healthBoard.visible = false;
+    stage.addChild(player.healthBoard);
+}
+
+function showHealthBoard(){
+    player.healthBoard.visible = true;
+}
+
+function hideHealthBoard(){
+    player.healthBoard.visible = false;
+}
+
+function calculateScore(points){
+    player.score += points;
+    player.scoreBoard.text = "Score: " + player.score;
 }

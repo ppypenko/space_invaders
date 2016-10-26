@@ -3,7 +3,10 @@ function setupGame() {
     buildInstructionScreen();
     buildLevelOneScreen();
     buildButtons();
-    
+    buildScore();
+    buildHealthBoard();
+    setButtonListeners();
+    setButtons();
     
 }
 
@@ -28,6 +31,8 @@ function levelOneView() {
     hidePlayGameButton();
     hideInstructionButton();
     showLevelOneScreen();
+    showScore();
+    showHealthBoard();
 }
 
 function levelTwoView() {
