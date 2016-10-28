@@ -47,6 +47,7 @@ function levelOneView() {
 }
 
 function levelOnePlay() {
+    aiPlayerHit();
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();
