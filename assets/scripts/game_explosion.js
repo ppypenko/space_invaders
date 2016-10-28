@@ -11,7 +11,6 @@ function playExplosion(n, x, y) {
         console.log("speeder hit");
         break;
     case 2:
-        healthDrop(x, y);
         console.log("mothership hit");
         break;
     }

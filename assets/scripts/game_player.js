@@ -199,6 +199,7 @@ function buildScore() {
 
 function showScore() {
     aiPlayer.scoreBoard.visible = true;
+    aiPlayer.scoreBoard.text = "Score: " + aiPlayer.score;
 }
 
 function hideScore() {
@@ -215,6 +216,7 @@ function buildHealthBoard() {
 
 function showHealthBoard() {
     aiPlayer.healthBoard.visible = true;
+    aiPlayer.healthBoard.text = "Health: " + aiPlayer.health;
 }
 
 function hideHealthBoard() {
