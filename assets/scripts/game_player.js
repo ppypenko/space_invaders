@@ -100,11 +100,11 @@ function healthPickup() {
         if (aiPlayer.tank.hitTest(pt.x, pt.y)) {
             h = Math.floor(Math.random() * 10);
             if (h >= 0 && h <= 6) {
-                aiPlayer.health += 1;
+                calculateHealth(1);
             } else if (h >= 7 && h <= 8) {
-                aiPlayer.health += 2;
+                calculateHealth(2);
             } else {
-                aiPlayer.health += 3;
+                calculateHealth(3);
             }
             aiPlayer.healthDrop.visible = false;
         }
@@ -199,6 +199,7 @@ function buildScore() {
 
 function showScore() {
     aiPlayer.scoreBoard.visible = true;
+    aiPlayer.scoreBoard.text = "Score: " + aiPlayer.score;
 }
 
 function hideScore() {
@@ -215,6 +216,7 @@ function buildHealthBoard() {
 
 function showHealthBoard() {
     aiPlayer.healthBoard.visible = true;
+    aiPlayer.healthBoard.text = "Health: " + aiPlayer.health;
 }
 
 function hideHealthBoard() {
@@ -224,4 +226,9 @@ function hideHealthBoard() {
 function calculateScore(points) {
     aiPlayer.score += points;
     aiPlayer.scoreBoard.text = "Score: " + aiPlayer.score;
+}
+
+function calculateHealth(healthpoints) {
+    aiPlayer.health += healthpoints;
+    aiPlayer.healthBoard.text = "Health: " + aiPlayer.health;
 }

@@ -592,7 +592,7 @@ function aiPlayerLost() {
 }
 
 function aiPlayerHit() {
-    mothershipShotHitaiPlayer();
+//    mothershipShotHitaiPlayer();
     ufoShotHitaiPlayer(enemy.battlerUfo);
     ufoShotHitaiPlayer(enemy.speederUfo);
 }
@@ -600,10 +600,11 @@ function aiPlayerHit() {
 function ufoShotHitaiPlayer(ufo) {
     var i = 0,
         pt;
-    for (i = 0; i < ufo.shotCloneSize; i += 1) {
+    for (i = 0; i < ufo.cloneSize; i += 1) {
         if (ufo.shotClones[i].visible) {
             pt = aiPlayer.tank.globalToLocal(ufo.shotClones[i].x, ufo.shotClones[i].y);
-            if (ufo.shotClones[i].hitTest(pt.x, pt.y)) {
+            if (aiPlayer.tank.hitTest(pt.x, pt.y)) {
+                console.log(ufo.shotDamage);
                 damageaiPlayer(ufo.shotDamage);
             }
         }
