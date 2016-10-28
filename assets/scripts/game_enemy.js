@@ -313,28 +313,39 @@ function resetEnemies() {
     resetMotherships();
 }
 
-function moveBattlers() {
-    var i = 0,
-        switchmove = false;
+function moveLeft() {
+    var i = 0;
     for (i = 0; i < enemy.battlerUfo.cloneSize; i += 1) {
-        if (enemy.battlerUfo.ufoClones[i].visible && enemy.battlerUfo.ufoClones[i].x <= 10) {
-            if () {
-                enemy.battlerUfo.moveLeft = false;
-                dropBattlers();
-                break;
-            } else if (enemy.battlerUfo.ufoClones[i].x <= 790) {
-                enemy.battlerUfo.moveLeft = true;
-                dropBattlers();
-                break;
-            }
+        enemy.battlerUfo.ufoClones[i].x -= enemy.battlerUfo.ufoSpeed;
+    }
+}
+
+function moveRight() {
+    var i = 0;
+    for (i = 0; i < enemy.battlerUfo.cloneSize; i += 1) {
+        enemy.battlerUfo.ufoClones[i].x += enemy.battlerUfo.ufoSpeed;
+    }
+}
+
+function moveBattlers() {
+    var i = 0;
+    for (i = 0; i < length; i += 1) {
+        if (enemy.battlerUfo.ufoClones[i].x >= 785 && enemy.battlerUfo.ufoClones[i].visible) {
+            dropBattlers();
+            enemy.battlerUfo.moveLeft = true;
+            console.log(true);
+            break;
+        } else if (enemy.battlerUfo.ufoClones[i].x <= 15 && enemy.battlerUfo.ufoClones[i].visible) {
+            dropBattlers();
+            enemy.battlerUfo.moveLeft = false;
+            console.log(false);
+            break;
         }
     }
-    for (i = 0; i < enemy.battlerUfo.cloneSize; i += 1) {
-        if (enemy.battlerUfo.moveLeft) {
-            enemy.battlerUfo.ufoClones[i].x -= enemy.battlerUfo.ufoSpeed;
-        } else {
-            enemy.battlerUfo.ufoClones[i].x += enemy.battlerUfo.ufoSpeed;
-        }
+    if (enemy.battlerUfo.moveLeft) {
+        moveLeft();
+    } else {
+        moveRight();
     }
 }
 
@@ -590,7 +601,7 @@ function aiPlayerLost() {
 }
 
 function aiPlayerHit() {
-//    mothershipShotHitaiPlayer();
+    //    mothershipShotHitaiPlayer();
     ufoShotHitaiPlayer(enemy.battlerUfo);
     ufoShotHitaiPlayer(enemy.speederUfo);
 }
