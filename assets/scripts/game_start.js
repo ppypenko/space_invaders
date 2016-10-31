@@ -42,6 +42,7 @@ function levelOneView() {
         showScore();
         showHealthBoard();
         showPlayButton();
+        showBattlers();
         GAME_STATES.GAME_ON = true;
     }
 }

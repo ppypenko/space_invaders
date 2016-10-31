@@ -80,6 +80,7 @@ function createaiPlayer() {
 
 function damageaiPlayer(dmg) {
     aiPlayer.health -= dmg;
+    aiPlayer.healthBoard.text = "Health: " + aiPlayer.health;
     if (aiPlayer.health <= 0) {
         gameOver();
     }
@@ -148,8 +149,6 @@ function aiPlayerMovement() {
     if (aiPlayer.moveLeft) {
         aiPlayer.tank.x -= aiPlayer.speed;
         aiPlayer.turrent.x -= aiPlayer.speed;
-    } else {
-
     }
     if (aiPlayer.moveRight) {
         aiPlayer.tank.x += aiPlayer.speed;
