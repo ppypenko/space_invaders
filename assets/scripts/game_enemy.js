@@ -672,3 +672,4 @@ function enemyBeat() {
         gameVictory();
     }
 }
+
