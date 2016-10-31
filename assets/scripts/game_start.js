@@ -76,9 +76,18 @@ function levelTwoView() {
     showLevelTwoScreen();
 }
 
+function levelTwoPlay() {
+
+}
+
 function levelThreeView() {
     showLevelThreeScreen();
 }
+
+function levelTwoPlay() {
+
+}
+
 
 function victoryView() {
 

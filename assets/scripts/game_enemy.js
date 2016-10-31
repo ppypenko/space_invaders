@@ -23,7 +23,7 @@ var enemy = {
         ufoClones: [],
         ufoHealth: [],
         shotClones: [],
-        cloneSize: 15,
+        cloneSize: 16,
         ufoSpeed: 5,
         health: 1,
         shotSpeed: 10,
