@@ -16,10 +16,10 @@ function menu() {
         gameCredits();
         break;
     case GAME_STATES.OVER:
-        gameOver();
+        gameOverScreenView();
         break;
     case GAME_STATES.VICTORY:
-        gameVictory();
+        victoryScreenView();
         break;
     case GAME_STATES.CONTINUE:
         levelOnePlay();
