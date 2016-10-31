@@ -145,7 +145,6 @@ function cloneBattlerShot() {
 function cloneMotherShipUfo() {
     var i = 0;
     for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
-
         enemy.mothershipUfo.ufoHealth[i] = enemy.mothershipUfo.health;
         enemy.mothershipUfo.ufoClones.push(enemy.mothershipUfo.ufo.clone());
         stage.addChild(enemy.mothershipUfo.ufoClones[i]);
