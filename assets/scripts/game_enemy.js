@@ -11,7 +11,7 @@ var enemy = {
         shotCloneSpread: 5,
         ufoSpeed: 3,
         health: 20,
-        shotSpeed: 10,
+        shotSpeed: 8,
         shotDamage: 5,
         points: 100,
         boom: 2,
@@ -23,7 +23,7 @@ var enemy = {
         ufoClones: [],
         ufoHealth: [],
         shotClones: [],
-        cloneSize: 8,
+        cloneSize: 256,
         ufoSpeed: 5,
         health: 1,
         shotSpeed: 10,
@@ -40,7 +40,7 @@ var enemy = {
         ufoClones: [],
         ufoHealth: [],
         shotClones: [],
-        cloneSize: 3,
+        cloneSize: 128,
         ufoSpeed: 10,
         health: 3,
         shotSpeed: 15,
@@ -53,6 +53,14 @@ var enemy = {
     },
     enemyLevel: 1
 };
+
+function incrementEnemyLevel() {
+    enemy.enemyLevel += 1;
+}
+
+function resetEnemyLevel() {
+    enemy.enemyLevel = 0;
+}
 
 function buildMothershipUfo() {
     enemy.mothershipUfo.ufo = new createjs.Bitmap(queue.getResult("mothership"));
@@ -235,18 +243,27 @@ function hideEnemies() {
     hideShots(enemy.speederUfo);
 }
 
-function showBattlers() {
+function showBattlers(amount) {
     var i = 0;
     for (i = 0; i < enemy.battlerUfo.cloneSize; i += 1) {
-        enemy.battlerUfo.ufoClones[i].visible = true;
+        if (amount > 0) {
+            enemy.battlerUfo.ufoClones[i].visible = true;
+            amount -= 1;
+        }
     }
+    enemy.battlerUfo.show = true;
 }
 
-function showSpeeders() {
+function showSpeeders(amount) {
     var i = 0;
     for (i = 0; i < enemy.speederUfo.cloneSize; i += 1) {
-        enemy.speederUfo.ufoClones[i].visible = true;
+        if (amount > 0) {
+            enemy.speederUfo.ufoClones[i].visible = true;
+            amount -= 1;
+        }
+
     }
+    enemy.speederUfo.show = true;
 }
 
 function showMotherShips() {
@@ -254,6 +271,7 @@ function showMotherShips() {
     for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
         enemy.mothershipUfo.ufoClones[i].visible = true;
     }
+    enemy.mothershipUfo.show = true;
 }
 
 function showEnemies() {
@@ -281,7 +299,7 @@ function resetBattlers() {
             y += 1;
         }
     }
-    enemy.battlerUfo.show = true;
+    enemy.battlerUfo.show = false;
 }
 
 function resetSpeeders() {
@@ -292,10 +310,10 @@ function resetSpeeders() {
         } else {
             enemy.speederUfo.ufoClones[i].x = Math.floor(Math.random() * 200) + 900;
         }
-        enemy.speederUfo.ufoClones[i].y = Math.floor(Math.random() * 400);
+        enemy.speederUfo.ufoClones[i].y = Math.floor(Math.random() * 300);
         enemy.speederUfo.ufoHealth[i] = enemy.speederUfo.health * enemy.enemyLevel;
     }
-    enemy.speederUfo.show = true;
+    enemy.speederUfo.show = false;
 }
 
 function resetMotherships() {
@@ -305,6 +323,7 @@ function resetMotherships() {
         enemy.mothershipUfo.ufoClones[i].y = -150;
         enemy.mothershipUfo.ufoHealth[i] = enemy.mothershipUfo.health * enemy.enemyLevel;
     }
+    enemy.mothershipUfo.show = false;
 }
 
 function resetEnemies() {
@@ -400,7 +419,6 @@ function moveMotherShips() {
                 }
             }
         }
-
     }
 }
 
@@ -410,28 +428,14 @@ function moveEnemies() {
     moveMotherShips();
 }
 
-function checkEnemies(ufo) {
-    var counter = 0,
-        check = true;
-    for (counter = 0; counter < ufo.cloneSize; counter += 1) {
-        if (ufo.ufoClones[counter].visible) {
-            check = false;
-            break;
-        }
-    }
-    return check;
-}
-
-function nextEnemy() {
-    if (checkEnemies(enemy.battlerUfo) && enemy.battlerUfo.show) {
-        showSpeeders();
+function nextEnemy(speederAmount, mothershipAmount) {
+    if (ufosBeat(enemy.battlerUfo) && enemy.battlerUfo.show) {
+        showSpeeders(speederAmount);
         enemy.battlerUfo.show = false;
-    } else if (checkEnemies(enemy.speederUfo) && enemy.speederUfo.show) {
-        showMotherShips();
+    } else if (ufosBeat(enemy.speederUfo) && enemy.speederUfo.show) {
+        console.log("mothership shown");
+        showMotherShips(mothershipAmount);
         enemy.speederUfo.show = false;
-    } else if (checkEnemies(enemy.mothershipUfo) && enemy.mothershipUfo.show) {
-        console.log("enemies beat");
-        enemy.mothershipUfo.show = false;
     }
 }
 
@@ -441,15 +445,27 @@ function hitUfos(ufo) {
         pt;
     for (i = 0; i < ufo.cloneSize; i += 1) {
         for (e = 0; e < aiPlayer.cloneSize; e += 1) {
-            if (ufo.ufoClones[i].visible && aiPlayer.shotClones[e].visible) {
-                pt = ufo.ufoClones[i].globalToLocal(aiPlayer.shotClones[e].x, aiPlayer.shotClones[e].y);
-                if (ufo.ufoClones[i].hitTest(pt.x, pt.y)) {
-                    aiPlayer.shotClones[e].visible = false;
-                    ufo.ufoHealth[i] -= aiPlayer.damage;
-                    if (ufo.ufoHealth[i] <= 0) {
-                        ufo.ufoClones[i].visible = false;
-                        calculateScore(ufo.points);
-                        playExplosion(ufo.ufoClones[i].boom, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
+            if (ufo.ufoClones[i].visible) {
+                if (aiPlayer.shotClones[e].visible) {
+                    pt = ufo.ufoClones[i].globalToLocal(aiPlayer.shotClones[e].x, aiPlayer.shotClones[e].y);
+                    if (ufo.ufoClones[i].hitTest(pt.x, pt.y)) {
+                        aiPlayer.shotClones[e].visible = false;
+                        ufo.ufoHealth[i] -= aiPlayer.damage;
+                        if (ufo.ufoHealth[i] <= 0) {
+                            ufo.ufoClones[i].visible = false;
+                            calculateScore(ufo.points);
+                            playExplosion(ufo.boom, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
+                        }
+                    }
+                } else if (aiPlayer.powerShotClones[e].visible) {
+                    pt = ufo.ufoClones[i].globalToLocal(aiPlayer.powerShotClones[e].x, aiPlayer.powerShotClones[e].y);
+                    if (ufo.ufoClones[i].hitTest(pt.x, pt.y)) {
+                        ufo.ufoHealth[i] -= aiPlayer.cheatDamage;
+                        if (ufo.ufoHealth[i] <= 0) {
+                            ufo.ufoClones[i].visible = false;
+                            calculateScore(ufo.points);
+                            playExplosion(ufo.boom, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
+                        }
                     }
                 }
             }
@@ -506,24 +522,27 @@ function fireMothershipShot() {
         e = 0;
     for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
         for (e = 0; e < enemy.mothershipUfo.shotCloneSize; e += 1) {
-            if (!enemy.mothershipUfo.shotClones[i][e][0].visible && !enemy.mothershipUfo.shotClones[i][e][1].visible && !enemy.mothershipUfo.shotClones[i][e][2].visible && !enemy.mothershipUfo.shotClones[i][e][3].visible && !enemy.mothershipUfo.shotClones[i][e][4].visible) {
-                enemy.mothershipUfo.shotClones[i][e][0].x = enemy.mothershipUfo.ufoClones[i].x;
-                enemy.mothershipUfo.shotClones[i][e][1].x = enemy.mothershipUfo.ufoClones[i].x;
-                enemy.mothershipUfo.shotClones[i][e][2].x = enemy.mothershipUfo.ufoClones[i].x;
-                enemy.mothershipUfo.shotClones[i][e][3].x = enemy.mothershipUfo.ufoClones[i].x;
-                enemy.mothershipUfo.shotClones[i][e][4].x = enemy.mothershipUfo.ufoClones[i].x;
+            if (enemy.mothershipUfo.ufoClones[i].visible) {
+                if (!enemy.mothershipUfo.shotClones[i][e][0].visible && !enemy.mothershipUfo.shotClones[i][e][1].visible && !enemy.mothershipUfo.shotClones[i][e][2].visible && !enemy.mothershipUfo.shotClones[i][e][3].visible && !enemy.mothershipUfo.shotClones[i][e][4].visible) {
+                    enemy.mothershipUfo.shotClones[i][e][0].x = enemy.mothershipUfo.ufoClones[i].x;
+                    enemy.mothershipUfo.shotClones[i][e][1].x = enemy.mothershipUfo.ufoClones[i].x;
+                    enemy.mothershipUfo.shotClones[i][e][2].x = enemy.mothershipUfo.ufoClones[i].x;
+                    enemy.mothershipUfo.shotClones[i][e][3].x = enemy.mothershipUfo.ufoClones[i].x;
+                    enemy.mothershipUfo.shotClones[i][e][4].x = enemy.mothershipUfo.ufoClones[i].x;
 
-                enemy.mothershipUfo.shotClones[i][e][0].y = enemy.mothershipUfo.ufoClones[i].y;
-                enemy.mothershipUfo.shotClones[i][e][1].y = enemy.mothershipUfo.ufoClones[i].y;
-                enemy.mothershipUfo.shotClones[i][e][2].y = enemy.mothershipUfo.ufoClones[i].y;
-                enemy.mothershipUfo.shotClones[i][e][3].y = enemy.mothershipUfo.ufoClones[i].y;
-                enemy.mothershipUfo.shotClones[i][e][4].y = enemy.mothershipUfo.ufoClones[i].y;
+                    enemy.mothershipUfo.shotClones[i][e][0].y = enemy.mothershipUfo.ufoClones[i].y;
+                    enemy.mothershipUfo.shotClones[i][e][1].y = enemy.mothershipUfo.ufoClones[i].y;
+                    enemy.mothershipUfo.shotClones[i][e][2].y = enemy.mothershipUfo.ufoClones[i].y;
+                    enemy.mothershipUfo.shotClones[i][e][3].y = enemy.mothershipUfo.ufoClones[i].y;
+                    enemy.mothershipUfo.shotClones[i][e][4].y = enemy.mothershipUfo.ufoClones[i].y;
 
-                enemy.mothershipUfo.shotClones[i][e][0].visible = true;
-                enemy.mothershipUfo.shotClones[i][e][1].visible = true;
-                enemy.mothershipUfo.shotClones[i][e][2].visible = true;
-                enemy.mothershipUfo.shotClones[i][e][3].visible = true;
-                enemy.mothershipUfo.shotClones[i][e][4].visible = true;
+                    enemy.mothershipUfo.shotClones[i][e][0].visible = true;
+                    enemy.mothershipUfo.shotClones[i][e][1].visible = true;
+                    enemy.mothershipUfo.shotClones[i][e][2].visible = true;
+                    enemy.mothershipUfo.shotClones[i][e][3].visible = true;
+                    enemy.mothershipUfo.shotClones[i][e][4].visible = true;
+                    break;
+                }
             }
         }
     }
@@ -540,23 +559,23 @@ function moveMothershipShots() {
                 if (enemy.mothershipUfo.shotClones[i][e][u].visible) {
                     switch (u) {
                     case 0:
-                        enemy.mothershipUfo.shotClones[i][e][u].x -= 2;
-                        enemy.mothershipUfo.shotClones[i][e][u].y -= enemy.mothershipUfo.shotSpeed;
+                        enemy.mothershipUfo.shotClones[i][e][u].x -= 6;
+                        enemy.mothershipUfo.shotClones[i][e][u].y += enemy.mothershipUfo.shotSpeed;
                         break;
                     case 1:
-                        enemy.mothershipUfo.shotClones[i][e][u].x -= 1;
-                        enemy.mothershipUfo.shotClones[i][e][u].y -= enemy.mothershipUfo.shotSpeed;
+                        enemy.mothershipUfo.shotClones[i][e][u].x -= 3;
+                        enemy.mothershipUfo.shotClones[i][e][u].y += enemy.mothershipUfo.shotSpeed;
                         break;
                     case 2:
-                        enemy.mothershipUfo.shotClones[i][e][u].y -= enemy.mothershipUfo.shotSpeed;
+                        enemy.mothershipUfo.shotClones[i][e][u].y += enemy.mothershipUfo.shotSpeed;
                         break;
                     case 3:
-                        enemy.mothershipUfo.shotClones[i][e][u].x += 1;
-                        enemy.mothershipUfo.shotClones[i][e][u].y -= enemy.mothershipUfo.shotSpeed;
+                        enemy.mothershipUfo.shotClones[i][e][u].x += 3;
+                        enemy.mothershipUfo.shotClones[i][e][u].y += enemy.mothershipUfo.shotSpeed;
                         break;
                     case 4:
-                        enemy.mothershipUfo.shotClones[i][e][u].x += 2;
-                        enemy.mothershipUfo.shotClones[i][e][u].y -= enemy.mothershipUfo.shotSpeed;
+                        enemy.mothershipUfo.shotClones[i][e][u].x += 6;
+                        enemy.mothershipUfo.shotClones[i][e][u].y += enemy.mothershipUfo.shotSpeed;
                         break;
                     }
                 }

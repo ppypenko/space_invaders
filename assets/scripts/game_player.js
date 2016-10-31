@@ -3,21 +3,42 @@ var aiPlayer = {
     tank: {},
     turrent: {},
     shot: {},
+    powershot: {},
     healthDrop: {},
     shotClones: [],
+    powerShotClones: [],
     cloneSize: 20,
     damage: 1,
     health: 3,
     score: 0,
     scoreBoard: {},
     healthBoard: {},
-    healthDropChance: 50,
+    healthDropChance: 20,
     moveLeft: false,
     moveRight: false,
     speed: 5,
     fire: false,
-    shotSpeed: 10
+    shotSpeed: 10,
+    easterEgg: "tbeatty",
+    eggTrue: false,
+    cheatcode: "",
+    cheatDamage: 10
 };
+
+function cheatCode(letter) {
+    aiPlayer.cheatcode += letter;
+    console.log(aiPlayer.cheatcode);
+}
+
+function enterCheatCode() {
+    console.log(aiPlayer.cheatcode, aiPlayer.easterEgg);
+    if (aiPlayer.cheatcode === aiPlayer.easterEgg) {
+        aiPlayer.eggTrue = true;
+    } else {
+        aiPlayer.eggTrue = false;
+    }
+    aiPlayer.cheatcode = "";
+}
 
 function buildaiPlayer() {
     var t = new createjs.SpriteSheet({
@@ -56,6 +77,13 @@ function buildTankShot() {
     aiPlayer.shot.visible = false;
 }
 
+function buildPowerShot() {
+    aiPlayer.powershot = new createjs.Bitmap(queue.getResult("tankshotpowered"));
+    aiPlayer.powershot.regX = aiPlayer.powershot.getBounds().width / 2;
+    aiPlayer.powershot.regY = aiPlayer.powershot.getBounds().height / 2;
+    aiPlayer.powershot.visible = false;
+}
+
 function cloneTankShots() {
     var i = 0;
     for (i = 0; i < aiPlayer.cloneSize; i += 1) {
@@ -64,16 +92,27 @@ function cloneTankShots() {
     }
 }
 
+function clonePowerShots() {
+    var i = 0;
+    for (i = 0; i < aiPlayer.cloneSize; i += 1) {
+        aiPlayer.powerShotClones.push(aiPlayer.powershot.clone());
+        stage.addChild(aiPlayer.powerShotClones[i]);
+    }
+}
+
 function buildHealthDrop() {
     aiPlayer.healthDrop = new createjs.Bitmap(queue.getResult("healthDrop"));
     aiPlayer.healthDrop.regX = aiPlayer.healthDrop.getBounds().width / 2;
     aiPlayer.healthDrop.regY = aiPlayer.healthDrop.getBounds().height / 2;
     aiPlayer.healthDrop.visible = false;
+    stage.addChild(aiPlayer.healthDrop);
 }
 
 function createaiPlayer() {
     buildTankShot();
+    buildPowerShot();
     cloneTankShots();
+    clonePowerShots();
     buildHealthDrop();
     buildaiPlayer();
 }
@@ -89,6 +128,8 @@ function damageaiPlayer(dmg) {
 function healthDrop(x, y) {
     var e = Math.floor(Math.random() * aiPlayer.healthDropChance);
     if (e === 0 && !aiPlayer.healthDrop.visible) {
+        aiPlayer.healthDrop.x = x;
+        aiPlayer.healthDrop.y = y;
         aiPlayer.healthDrop.visible = true;
     }
 }
@@ -113,8 +154,8 @@ function healthPickup() {
 }
 
 function moveHealthDrop() {
-    if (aiPlayer.healthDrop.visible && aiPlayer.healthDrop.y < 580) {
-        aiPlayer.healthDrop.y += 20;
+    if (aiPlayer.healthDrop.visible && aiPlayer.healthDrop.y < 570) {
+        aiPlayer.healthDrop.y += 10;
     }
 }
 
@@ -122,12 +163,22 @@ function aiPlayerFire() {
     var i = 0;
     if (aiPlayer.fire) {
         for (i = 0; i < aiPlayer.cloneSize; i += 1) {
-            if (!aiPlayer.shotClones[i].visible) {
-                aiPlayer.shotClones[i].x = aiPlayer.turrent.x;
-                aiPlayer.shotClones[i].y = aiPlayer.turrent.y;
-                aiPlayer.shotClones[i].visible = true;
-                aiPlayer.fire = false;
-                break;
+            if (aiPlayer.eggTrue) {
+                if (!aiPlayer.powerShotClones[i].visible) {
+                    aiPlayer.powerShotClones[i].x = aiPlayer.turrent.x;
+                    aiPlayer.powerShotClones[i].y = aiPlayer.turrent.y;
+                    aiPlayer.powerShotClones[i].visible = true;
+                    aiPlayer.fire = false;
+                    break;
+                }
+            } else {
+                if (!aiPlayer.shotClones[i].visible) {
+                    aiPlayer.shotClones[i].x = aiPlayer.turrent.x;
+                    aiPlayer.shotClones[i].y = aiPlayer.turrent.y;
+                    aiPlayer.shotClones[i].visible = true;
+                    aiPlayer.fire = false;
+                    break;
+                }
             }
         }
     }
@@ -141,6 +192,12 @@ function aiPlayerMoveShot() {
         }
         if (aiPlayer.shotClones[i].y < 0) {
             aiPlayer.shotClones[i].visible = false;
+        }
+        if (aiPlayer.powerShotClones[i].visible) {
+            aiPlayer.powerShotClones[i].y -= aiPlayer.shotSpeed;
+        }
+        if (aiPlayer.powerShotClones[i].y < 0) {
+            aiPlayer.powerShotClones[i].visible = false;
         }
     }
 }
@@ -185,6 +242,7 @@ function hideaiPlayer() {
     aiPlayer.turrent.visible = false;
     for (i = 0; i < aiPlayer.cloneSize; i += 1) {
         aiPlayer.shotClones[i].visible = false;
+        aiPlayer.powerShotClones[i].visible = false;
     }
 }
 
