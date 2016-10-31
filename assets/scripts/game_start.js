@@ -42,6 +42,7 @@ function levelOneView() {
         showScore();
         showHealthBoard();
         showPlayButton();
+        showBattlers();
         GAME_STATES.GAME_ON = true;
     }
 }
@@ -75,9 +76,18 @@ function levelTwoView() {
     showLevelTwoScreen();
 }
 
+function levelTwoPlay() {
+
+}
+
 function levelThreeView() {
     showLevelThreeScreen();
 }
+
+function levelTwoPlay() {
+
+}
+
 
 function victoryView() {
 
