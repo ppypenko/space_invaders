@@ -23,7 +23,7 @@ var enemy = {
         ufoClones: [],
         ufoHealth: [],
         shotClones: [],
-        cloneSize: 16,
+        cloneSize: 8,
         ufoSpeed: 5,
         health: 1,
         shotSpeed: 10,
@@ -32,7 +32,7 @@ var enemy = {
         moveLeft: false,
         points: 10,
         boom: 0,
-        show: true
+        show: false
     },
     speederUfo: {
         ufo: {},
@@ -40,7 +40,7 @@ var enemy = {
         ufoClones: [],
         ufoHealth: [],
         shotClones: [],
-        cloneSize: 5,
+        cloneSize: 3,
         ufoSpeed: 10,
         health: 3,
         shotSpeed: 15,
@@ -266,19 +266,20 @@ function resetBattlers() {
     var i = 0,
         x = 0,
         y = 0,
-        length = 8,
+        length = 7,
         padx = 89,
         pady = -50;
     for (i = 0; i < enemy.battlerUfo.cloneSize; i += 1) {
+
+        enemy.battlerUfo.ufoClones[i].x = (padx * x);
+        enemy.battlerUfo.ufoClones[i].y = (pady * y);
+        enemy.battlerUfo.ufoHealth[i] = enemy.battlerUfo.health * enemy.enemyLevel;
         if (x < length) {
             x += 1;
         } else {
             x = 0;
             y += 1;
         }
-        enemy.battlerUfo.ufoClones[i].x = (padx * x);
-        enemy.battlerUfo.ufoClones[i].y = (pady * y);
-        enemy.battlerUfo.ufoHealth[i] = enemy.battlerUfo.health * enemy.enemyLevel;
     }
     enemy.battlerUfo.show = true;
 }
@@ -304,7 +305,6 @@ function resetMotherships() {
         enemy.mothershipUfo.ufoClones[i].y = -150;
         enemy.mothershipUfo.ufoHealth[i] = enemy.mothershipUfo.health * enemy.enemyLevel;
     }
-    enemy.mothershipUfo.show = true;
 }
 
 function resetEnemies() {

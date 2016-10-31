@@ -49,24 +49,24 @@ function levelOneView() {
 
 function levelOnePlay() {
     aiPlayerHit();
+    nextEnemy();
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();
     moveEnemyShots();
     hitEnemies();
-    nextEnemy();
     moveEnemies();
     aiPlayerFuncs();
     hidePlayButton();
 }
 
-function gameVictory() {
+function victoryScreenView() {
     hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
 }
 
-function gameOver() {
+function gameOverScreenView() {
     hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
