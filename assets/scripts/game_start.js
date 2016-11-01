@@ -44,14 +44,15 @@ function levelOneView() {
         showScore();
         showHealthBoard();
         showPlayButton();
-        showBattlers();
+        showBattlers(32);
+        hideMotherShips();
         GAME_STATES.GAME_ON = true;
     }
 }
 
 function levelOnePlay() {
     aiPlayerHit();
-    nextEnemy();
+    nextEnemy(16, 1);
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();

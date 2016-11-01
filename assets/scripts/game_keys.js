@@ -7,11 +7,16 @@ var KEYCODE_LEFT = 37,
     KEYCODE_A = 65,
     KEYCODE_S = 83,
     KEYCODE_D = 68,
-    KEYCODE_SPACE = 32;
+    KEYCODE_SPACE = 32,
+    KEYCODE_ENTER = 13,
+    KEYCODE_T = 84,
+    KEYCODE_B = 66,
+    KEYCODE_E = 69,
+    KEYCODE_Y = 89;
 
 function handleKeyDown(evt) {
     if (!evt) {
-        var evt = window.event;
+        evt = window.event;
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
@@ -45,7 +50,7 @@ function handleKeyDown(evt) {
 
 function handleKeyUp(evt) {
     if (!evt) {
-        var evt = window.event;
+        evt = window.event;
     }
     switch (evt.keyCode) {
     case KEYCODE_LEFT:
@@ -64,6 +69,7 @@ function handleKeyUp(evt) {
         console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_A:
+        cheatCode("a");
         aiPlayer.moveLeft = false;
         return false;
     case KEYCODE_S:
@@ -74,6 +80,21 @@ function handleKeyUp(evt) {
         return false;
     case KEYCODE_SPACE:
         aiPlayer.fire = true;
+        return false;
+    case KEYCODE_ENTER:
+        enterCheatCode();
+        return false;
+    case KEYCODE_T:
+        cheatCode("t");
+        return false;
+    case KEYCODE_B:
+        cheatCode("b");
+        return false;
+    case KEYCODE_E:
+        cheatCode("e");
+        return false;
+    case KEYCODE_Y:
+        cheatCode("y");
         return false;
     }
 }
