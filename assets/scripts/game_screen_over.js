@@ -7,7 +7,7 @@ function buildGameOverScreen() {
     gameOverScreen.x = 0;
     gameOverScreen.y = 0;
     gameOverScreen.visible = false;
-    stage.update(gameOverScreen);
+    stage.addChild(gameOverScreen);
 }
 
 function showGameOverScreen() {
