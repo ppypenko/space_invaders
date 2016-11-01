@@ -4,6 +4,8 @@ function setupGame() {
     buildTitle();
     buildInstructionScreen();
     buildLevelOneScreen();
+    buildLevelTwoScreen();
+    buildLevelThreeScreen();
     createEnemies();
     createaiPlayer();
     createaiPlayer();
@@ -64,6 +66,7 @@ function victoryScreenView() {
     hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
+    
 }
 
 function gameOverScreenView() {
@@ -73,6 +76,7 @@ function gameOverScreenView() {
 }
 
 function levelTwoView() {
+    hideLevelOneScreen();
     showLevelTwoScreen();
 }
 
