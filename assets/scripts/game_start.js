@@ -134,9 +134,9 @@ function levelTwoPlay() {
 }
 
 function moveOn(){
-    if(counter == 1){
+    if(counter === 1){
         levelTwoView();
-    }else if(counter == 2){
+    }else if(counter === 2){
         levelThreeView();
     }
 }
@@ -175,9 +175,6 @@ function levelTwoPlay() {
     hidePlayButton();
 }
 
-function moveOn() {
-
-}
 
 function nextLevel() {
 
