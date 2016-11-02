@@ -37,6 +37,18 @@ var manifest = [{
 }, {
     src: "scripts/game_states.js"
 }, {
+    src: "images/boom_battler.png",
+    id: "boom_battler"
+}, {
+    src: "images/boom_mothership.png",
+    id: "boom_mothership"
+}, {
+    src: "images/boom_speeder.png",
+    id: "boom_speeder"
+}, {
+    src: "images/boom_tank.png",
+    id: "boom_tank"
+}, {
     src: "images/battlershot.png",
     id: "battlershot"
 }, {

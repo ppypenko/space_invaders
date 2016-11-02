@@ -375,7 +375,7 @@ function hitUfos(ufo) {
                         if (ufo.ufoHealth[i] <= 0) {
                             ufo.ufoClones[i].visible = false;
                             calculateScore(ufo.points);
-                            playExplosion(ufo.boom, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
+                            playExplosion(ufo.boom, i, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
                         }
                     }
                 } else if (aiPlayer.powerShotClones[e].visible) {
@@ -385,7 +385,7 @@ function hitUfos(ufo) {
                         if (ufo.ufoHealth[i] <= 0) {
                             ufo.ufoClones[i].visible = false;
                             calculateScore(ufo.points);
-                            playExplosion(ufo.boom, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
+                            playExplosion(ufo.boom, i, ufo.ufoClones[i].x, ufo.ufoClones[i].y);
                         }
                     }
                 }

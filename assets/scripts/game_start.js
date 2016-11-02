@@ -7,6 +7,7 @@ function setupGame() {
     buildLevelTwoScreen();
     buildLevelThreeScreen();
     createEnemies();
+    createBooms();
     createaiPlayer();
     createaiPlayer();
     buildButtons();
@@ -68,10 +69,10 @@ function victoryScreenView() {
     hideLevelOneScreen();
     hideLevelTwoScreen();
     hideLevelThreeScreen(); // when all levels are implemented probably this will be the only level we would need to hide
-    
+
     buildVictoryScreen();
     showVictoryScreen();
-    
+
 }
 
 function gameOverScreenView() {
@@ -80,7 +81,7 @@ function gameOverScreenView() {
     hideLevelOneScreen();
     hideLevelTwoScreen();
     hideLevelThreeScreen();
-    
+
     buildGameOverScreen();
     showGameOverScreen();
 }
