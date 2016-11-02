@@ -43,7 +43,6 @@ function levelOneView() {
         showHealthBoard();
         showPlayButton();
         showBattlers(32);
-        hideMotherShips();
         GAME_STATES.GAME_ON = true;
     }
 }
@@ -86,6 +85,14 @@ function levelThreeView() {
 }
 
 function levelTwoPlay() {
+
+}
+
+function moveOn() {
+
+}
+
+function nextLevel() {
 
 }
 
