@@ -240,6 +240,7 @@ function hideaiPlayer() {
     var i = 0;
     aiPlayer.tank.visible = false;
     aiPlayer.turrent.visible = false;
+    aiPlayer.healthDrop.visible = false;
     for (i = 0; i < aiPlayer.cloneSize; i += 1) {
         aiPlayer.shotClones[i].visible = false;
         aiPlayer.powerShotClones[i].visible = false;

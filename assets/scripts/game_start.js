@@ -46,7 +46,6 @@ function levelOneView() {
         showHealthBoard();
         showPlayButton();
         showBattlers(5);
-        hideMotherShips();
         GAME_STATES.GAME_ON = true;
     }
 }
@@ -77,6 +76,11 @@ function victoryScreenView() {
     hideBattlers();
     hideMotherShips();
     hideMothershipShots();
+    hideLevelTwoScreen();
+    hideLevelThreeScreen(); // when all levels are implemented probably this will be the only level we would need to hide
+    
+    buildVictoryScreen();
+    showVictoryScreen();
     
 }
 
@@ -85,10 +89,15 @@ function gameOverScreenView() {
     hideEnemies();
     hideLevelOneScreen();
     hideLevelTwoScreen();
+    hideLevelTwoScreen();
+    hideLevelThreeScreen();
     hideLevelThreeScreen();
     resetEnemies();
+    
     resetaiPlayer();
+    buildGameOverScreen();
     hideHealthBoard();
+    showGameOverScreen();
     hideBattlers();
     hideMotherShips();
     hideMothershipShots();
@@ -164,6 +173,14 @@ function levelTwoPlay() {
     moveEnemies();
     aiPlayerFuncs();
     hidePlayButton();
+}
+
+function moveOn() {
+
+}
+
+function nextLevel() {
+
 }
 
 
