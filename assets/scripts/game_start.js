@@ -35,7 +35,7 @@ function instructionScreenView() {
 
 function levelOneView() {
     if (!GAME_STATES.GAME_ON) {
-        console.log("You used the function" + counter + " times");
+        console.log("You used the function " + counter + " times");
         hideTitle();
         hidePlayGameButton();
         hideInstructionButton();
@@ -134,9 +134,9 @@ function levelTwoPlay() {
 }
 
 function moveOn(){
-    if(counter == 1){
+    if(counter === 1){
         levelTwoView();
-    }else if(counter == 2){
+    }else if(counter === 2){
         levelThreeView();
     }
 }
