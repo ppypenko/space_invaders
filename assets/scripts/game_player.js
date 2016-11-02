@@ -162,6 +162,7 @@ function moveHealthDrop() {
 function aiPlayerFire() {
     var i = 0;
     if (aiPlayer.fire) {
+        playLaser();
         for (i = 0; i < aiPlayer.cloneSize; i += 1) {
             if (aiPlayer.eggTrue) {
                 if (!aiPlayer.powerShotClones[i].visible) {

@@ -23,22 +23,18 @@ function handleKeyDown(evt) {
         aiPlayer.moveLeft = true;
         return false;
     case KEYCODE_UP:
-        console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_RIGHT:
         aiPlayer.moveRight = true;
         return false;
     case KEYCODE_DOWN:
-        console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_W:
-        console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_A:
         aiPlayer.moveLeft = true;
         return false;
     case KEYCODE_S:
-        console.log(evt.keyCode + " down");
         return false;
     case KEYCODE_D:
         aiPlayer.moveRight = true;
@@ -57,24 +53,20 @@ function handleKeyUp(evt) {
         aiPlayer.moveLeft = false;
         return false;
     case KEYCODE_UP:
-        console.log(evt.keyCode + " up");
-            showPlayButton();
+        showPlayButton();
         return false;
     case KEYCODE_RIGHT:
         aiPlayer.moveRight = false;
         return false;
     case KEYCODE_DOWN:
-        console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_W:
-        console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_A:
         cheatCode("a");
         aiPlayer.moveLeft = false;
         return false;
     case KEYCODE_S:
-        console.log(evt.keyCode + " up");
         return false;
     case KEYCODE_D:
         aiPlayer.moveRight = false;

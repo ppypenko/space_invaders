@@ -119,6 +119,18 @@ var manifest = [{
     id: "healthDrop"
 }, {
     src: "scripts/game_loop.js"
+}, {
+    src: "sounds/alien.wav",
+    id: "alien"
+}, {
+    src: "sounds/explosion.wav",
+    id: "explosion"
+}, {
+    src: "sounds/laser.wav",
+    id: "laser"
+}, {
+    src: "sounds/zap.wav",
+    id: "zap"
 }];
 
 function setupCanvas() {
@@ -135,6 +147,7 @@ function loadComplete(evt) {
 function loadFiles() {
     queue = new createjs.LoadQueue(true, "assets/");
     queue.on("complete", loadComplete, this);
+    queue.installPlugin(createjs.Sound);
     queue.loadManifest(manifest);
 }
 

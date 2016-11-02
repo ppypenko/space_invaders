@@ -9,58 +9,69 @@ var boom = {
     boom4Clones: []
 };
 
-function buildExplosion(boom, img) {
-    var sheet = new createjs.SpriteSheet({
-        images: [queue.getResult("img")],
-        frames: {
-            width: 256,
-            height: 256,
-            count: 67,
-            regX: 0,
-            regY: 0,
-            spacing: 1,
-            margin: 0
-        },
-        animations: {
-            boom: [0, 66, false, .5]
-        }
-    });
-    boom = new createjs.Sprite(sheet);
-    boom.visible = false;
-    boom.addEventListener("animationend", function (this) {
-        console.log(this);
-        this.visible = false;
-    });
+function buildExplosion() {
+    var sheet = {},
+        boomers = ["boom_tank", "boom_battler", "boom_speeder"],
+        results = [],
+        i = 0;
+    for (i = 0; i < boomers.length; i += 1) {
+        sheet = new createjs.SpriteSheet({
+            images: [queue.getResult(boomers[i])],
+            frames: {
+                width: 256,
+                height: 256,
+                count: 67,
+                regX: 0,
+                regY: 0,
+                spacing: 1,
+                margin: 0
+            },
+            animations: {
+                boom: [0, 66, false, .5]
+            }
+        });
+        results.push(sheet);
+    }
+    boom.boom1 = new createjs.Sprite(results[0]);
+    boom.boom2 = new createjs.Sprite(results[1]);
+    boom.boom3 = new createjs.Sprite(results[2]);
+
+    boom.boom1.regX = boom.boom1.getBounds().width / 2;
+    boom.boom1.regY = boom.boom1.getBounds().height / 2;
+    boom.boom2.regX = boom.boom2.getBounds().width / 2;
+    boom.boom2.regY = boom.boom2.getBounds().height / 2;
+    boom.boom3.regX = boom.boom3.getBounds().width / 2;
+    boom.boom3.regY = boom.boom3.getBounds().height / 2;
+
+    boom.boom1.visible = false;
+    boom.boom2.visible = false;
+    boom.boom3.visible = false;
 }
 
 function buildMothershipExlosion() {
     var sheet = new createjs.SpriteSheet({
         images: [queue.getResult("boom_mothership")],
         frames: {
-            width: 256,
-            height: 256,
-            count: 67,
+            width: 352,
+            height: 352,
+            count: 57,
             regX: 0,
             regY: 0,
             spacing: 1,
             margin: 0
         },
         animations: {
-            boom: [0, 66, false, .5]
+            boom: [0, 56, false, .5]
         }
     });
-    boom.boom4 = new createjsSprite(sheet);
+    boom.boom4 = new createjs.Sprite(sheet);
+    boom.boom4.regX = boom.boom4.getBounds().width / 2;
+    boom.boom4.regY = boom.boom4.getBounds().height / 2;
     boom.boom4.visible = false;
-    boom.boom4.addEventListener("animationend", function (this) {
-        console.log(this);
-        this.visible = false;
-    });
 }
 
 function buildBooms() {
-    buildExplosion(boom.boom1, "boom_tank");
-    buildExplosion(boom.boom2, "boom_battler");
-    buildExplosion(boom.boom3, "boom_speeder");
+    buildExplosion();
     buildMothershipExlosion();
 }
 
@@ -74,7 +85,7 @@ function cloneBoom(size, obj, clones) {
 
 function cloneBooms() {
     cloneBoom(enemy.battlerUfo.cloneSize, boom.boom2, boom.boom2Clones);
-    cloneBoom(enemy.speeder.cloneSize, boom.boom3, boom.boom3Clones);
+    cloneBoom(enemy.speederUfo.cloneSize, boom.boom3, boom.boom3Clones);
     cloneBoom(enemy.mothershipUfo.cloneSize, boom.boom4, boom.boom4Clones);
 }
 
@@ -89,6 +100,7 @@ function boom1() {
 }
 
 function playExplosion(n, i, x, y) {
+    playBoom();
     switch (n) {
     case 0:
         healthDrop(x, y);

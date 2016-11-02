@@ -6,8 +6,10 @@ function setupGame() {
     buildLevelOneScreen();
     buildLevelTwoScreen();
     buildLevelThreeScreen();
+    buildVictoryScreen();
+    buildGameOverScreen();
+    createBooms();
     createEnemies();
-    createaiPlayer();
     createaiPlayer();
     buildButtons();
     buildScore();
@@ -15,10 +17,10 @@ function setupGame() {
     buildHealthBoard();
     setButtonListeners();
     setButtons();
+    playMusic();
 }
 
 function gameOverScreenView() {
-    hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
     hideLevelTwoScreen();
@@ -26,11 +28,11 @@ function gameOverScreenView() {
     hideLevelThreeScreen();
     hideLevelThreeScreen();
     resetEnemies();
-    
     resetaiPlayer();
-    buildGameOverScreen();
+    hideaiPlayer();
     hideHealthBoard();
     showGameOverScreen();
+    showContinueButton();
 }
 
 function instructionScreenView() {
@@ -42,7 +44,6 @@ function instructionScreenView() {
 }
 
 function levelOneView() {
-    console.log("You used the function" + counter + " times");
     hideTitle();
     hidePlayGameButton();
     hideInstructionButton();
@@ -70,13 +71,13 @@ function levelOnePlay() {
 }
 
 function levelTwoView() {
-    //console.log("You used the function " + counter + " times");
     hideTitle();
     hidePlayGameButton();
     hideInstructionButton();
     hideLevelOneScreen();
     showLevelTwoScreen();
     hideEnemies();
+    hideaiPlayer();
     resetEnemies();
     resetaiPlayer();
     showScore();
@@ -106,6 +107,7 @@ function levelThreeView() {
     hideLevelTwoScreen();
     showLevelThreeScreen();
     hideEnemies();
+    hideaiPlayer();
     resetEnemies();
     resetaiPlayer();
     showScore();
@@ -127,52 +129,54 @@ function levelThreePlay() {
     hidePlayButton();
 }
 
-function moveOn(){
-    //GAME_STATES.GAME_ON = false;
+function moveOn() {
     gameStart();
 }
 
 function nextLevel() {
-    switch(counter) {
-        case 0:
-            levelOneView();
-            break;
-        case 1:
-            levelTwoView();
-            break;
-        case 2:
-            levelThreeView();
-            break;
-        case 3:
-            gameVictory();
-            break;
+    switch (counter) {
+    case 0:
+        levelOneView();
+        break;
+    case 1:
+        levelTwoView();
+        break;
+    case 2:
+        levelThreeView();
+        break;
+    case 3:
+        gameVictory();
+        break;
     }
 }
 
-function nextLevelPlay(){
-    switch(counter) {
-        case 0:
-            levelOnePlay();
-            break;
-        case 1:
-            levelTwoPlay();
-            break;
-        case 2:
-            levelThreePlay();
-            break;
+function nextLevelPlay() {
+    switch (counter) {
+    case 0:
+        levelOnePlay();
+        break;
+    case 1:
+        levelTwoPlay();
+        break;
+    case 2:
+        levelThreePlay();
+        break;
     }
 }
 
 function titleScreenView() {
     hideInstructionScreen();
     hideMenuButton();
+    hideContinueButton();
+    hideVictoryScreen();
+    hideGameOverScreen();
+    resetEnemyLevel();
     showTitle();
     showPlayGameButton();
     showInstructionButton();
 }
 
 function victoryScreenView() {
-    hideaiPlayer();
     hideEnemies();
     hideLevelOneScreen();
     hideLevelTwoScreen();
@@ -180,19 +184,12 @@ function victoryScreenView() {
     hideEnemies();
     resetEnemies();
     resetaiPlayer();
+    hideaiPlayer();
     hideScore();
     hideHealthBoard();
     hideLevelTwoScreen();
     hideLevelThreeScreen(); // when all levels are implemented probably this will be the only level we would need to hide
-    
-    buildVictoryScreen();
     showVictoryScreen();
-    
-}
-function victoryView() {
-
-}
-
-function gameOverView() {
+    showContinueButton();
 
 }

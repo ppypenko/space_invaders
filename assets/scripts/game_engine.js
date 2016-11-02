@@ -19,7 +19,7 @@ function menu() {
         gameOverScreenView();
         break;
     case GAME_STATES.VICTORY:
-        victoryScreenView();        
+        victoryScreenView();
         break;
     case GAME_STATES.CONTINUE:
         nextLevelPlay();
