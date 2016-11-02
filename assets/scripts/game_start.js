@@ -175,9 +175,6 @@ function levelTwoPlay() {
     hidePlayButton();
 }
 
-function moveOn() {
-
-}
 
 function nextLevel() {
 
