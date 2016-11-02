@@ -64,6 +64,7 @@ function setButtons() {
     stage.addChild(btn.Instruct);
     stage.addChild(btn.Continue);
     stage.addChild(btn.PlayGame);
+    console.log("Start Button: " + stage.getChildIndex(btn.Play));
 }
 
 function setButtonListeners() {

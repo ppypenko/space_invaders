@@ -1,4 +1,5 @@
 "use strict";
+var counter = 0;
 var enemy = {
     mothershipUfo: {
         ufo: {},
@@ -609,6 +610,7 @@ function ufosBeat(ufo) {
 
 function enemyBeat() {
     if (ufosBeat(enemy.mothershipUfo) && ufosBeat(enemy.speederUfo) && ufosBeat(enemy.battlerUfo)) {
+        counter++;
         moveOn();
     }
 }
