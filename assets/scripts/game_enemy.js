@@ -610,10 +610,7 @@ function ufosBeat(ufo) {
 
 function enemyBeat() {
     if (ufosBeat(enemy.mothershipUfo) && ufosBeat(enemy.speederUfo) && ufosBeat(enemy.battlerUfo)) {
-        
-        
         counter++;
-        console.log(counter);
         moveOn();
     }
 }

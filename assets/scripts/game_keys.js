@@ -58,6 +58,7 @@ function handleKeyUp(evt) {
         return false;
     case KEYCODE_UP:
         console.log(evt.keyCode + " up");
+            showPlayButton();
         return false;
     case KEYCODE_RIGHT:
         aiPlayer.moveRight = false;
