@@ -7,7 +7,7 @@ function buildVictoryScreen() {
     victoryScreen.x = 0;
     victoryScreen.y = 0;
     victoryScreen.visible = false;
-    stage.update(victoryScreen);
+    stage.addChild(victoryScreen);
 }
 
 function showVictoryScreen() {
