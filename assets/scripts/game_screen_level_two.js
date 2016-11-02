@@ -7,7 +7,7 @@ function buildLevelTwoScreen() {
     levelTwoScreen.x = 0;
     levelTwoScreen.y = 0;
     levelTwoScreen.visible = false;
-    stage.update(levelTwoScreen);
+    stage.addChild(levelTwoScreen);
 }
 
 function showLevelTwoScreen() {
