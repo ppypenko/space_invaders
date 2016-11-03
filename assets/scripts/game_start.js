@@ -1,23 +1,27 @@
 "use strict";
+var done = false;
 
 function setupGame() {
-    buildTitle();
-    buildInstructionScreen();
-    buildLevelOneScreen();
-    buildLevelTwoScreen();
-    buildLevelThreeScreen();
-    buildVictoryScreen();
-    buildGameOverScreen();
-    createBooms();
-    createEnemies();
-    createaiPlayer();
-    buildButtons();
-    buildScore();
-    buildaiPlayer();
-    buildHealthBoard();
-    setButtonListeners();
-    setButtons();
-    playMusic();
+    if (!done) {
+        buildTitle();
+        buildInstructionScreen();
+        buildLevelOneScreen();
+        buildLevelTwoScreen();
+        buildLevelThreeScreen();
+        buildVictoryScreen();
+        buildGameOverScreen();
+        createBooms();
+        createEnemies();
+        createaiPlayer();
+        buildButtons();
+        buildScore();
+        buildaiPlayer();
+        buildHealthBoard();
+        setButtonListeners();
+        setButtons();
+        playMusic();
+        done = true;
+    }
 }
 
 function gameOverScreenView() {

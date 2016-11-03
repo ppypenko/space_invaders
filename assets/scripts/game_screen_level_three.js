@@ -7,7 +7,7 @@ function buildLevelThreeScreen() {
     levelThreeScreen.x = 0;
     levelThreeScreen.y = 0;
     levelThreeScreen.visible = false;
-    stage.addChildAt(levelThreeScreen, firstLevelBgIndex + 1);
+    stage.addChildAt(levelThreeScreen);
 }
 
 function showLevelThreeScreen() {
