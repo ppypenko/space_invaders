@@ -127,6 +127,7 @@ function setButtonListeners() {
 
     btn.PlayGame.on("click", function (evt) {
         btn.PlayGame.gotoAndPlay("btnOff");
+        resetEnemyLevel();
         resetaiPlayerHealthScore();
         gameStart();
     });

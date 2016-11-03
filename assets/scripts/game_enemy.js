@@ -29,7 +29,7 @@ var enemy = {
         health: 1,
         shotSpeed: 10,
         shotDamage: 1,
-        fireChance: 800,
+        fireChance: 400,
         moveLeft: false,
         points: 10,
         boom: 0,
@@ -46,7 +46,7 @@ var enemy = {
         health: 3,
         shotSpeed: 15,
         shotDamage: 2,
-        fireChance: 800,
+        fireChance: 400,
         moveLeft: false,
         points: 5,
         boom: 1,
@@ -55,8 +55,8 @@ var enemy = {
     enemyLevel: 1
 };
 
-function incrementEnemyLevel() {
-    enemy.enemyLevel += 1;
+function incrementEnemyLevel(level) {
+    enemy.enemyLevel = level + 1;
 }
 
 function resetEnemyLevel() {
@@ -505,7 +505,7 @@ function moveShots(ufo) {
 }
 
 function moveEnemyShots() {
-    
+
     moveMothershipShots();
     moveShots(enemy.battlerUfo);
     moveShots(enemy.speederUfo);

@@ -48,6 +48,7 @@ function instructionScreenView() {
 }
 
 function levelOneView() {
+    incrementEnemyLevel(counter);
     hideTitle();
     hidePlayGameButton();
     hideInstructionButton();
@@ -57,13 +58,13 @@ function levelOneView() {
     showScore();
     showHealthBoard();
     showPlayButton();
-    showBattlers(16);
+    showBattlers(64);
     GAME_STATES.GAME_ON = true;
 }
 
 function levelOnePlay() {
     aiPlayerHit();
-    nextEnemy(3, 1);
+    nextEnemy(32, 1);
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();
@@ -75,6 +76,7 @@ function levelOnePlay() {
 }
 
 function levelTwoView() {
+    incrementEnemyLevel(counter);
     hideTitle();
     hidePlayGameButton();
     hideInstructionButton();
@@ -87,12 +89,12 @@ function levelTwoView() {
     showScore();
     showHealthBoard();
     showPlayButton();
-    showBattlers(2);
+    showBattlers(128);
 }
 
 function levelTwoPlay() {
     aiPlayerHit();
-    nextEnemy(2, 1);
+    nextEnemy(64, 1);
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();
@@ -104,6 +106,7 @@ function levelTwoPlay() {
 }
 
 function levelThreeView() {
+    incrementEnemyLevel(counter);
     hideTitle();
     hidePlayGameButton();
     hideInstructionButton();
@@ -117,12 +120,12 @@ function levelThreeView() {
     showScore();
     showHealthBoard();
     showPlayButton();
-    showBattlers(3);
+    showBattlers(256);
 }
 
 function levelThreePlay() {
     aiPlayerHit();
-    nextEnemy(3, 1);
+    nextEnemy(128, 1);
     enemyBeat();
     aiPlayerLost();
     fireEnemyShots();
