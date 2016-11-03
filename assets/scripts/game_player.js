@@ -40,6 +40,12 @@ function enterCheatCode() {
     aiPlayer.cheatcode = "";
 }
 
+function resetaiPlayerHealthScore() {
+    aiPlayer.health = 3;
+    aiPlayer.score = 0;
+    counter = 0;
+}
+
 function buildaiPlayer() {
     var t = new createjs.SpriteSheet({
         images: [queue.getResult("tanks")],
