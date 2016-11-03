@@ -93,7 +93,6 @@ function gameOverScreenView() {
     hideLevelThreeScreen();
     hideLevelThreeScreen();
     resetEnemies();
-    
     resetaiPlayer();
     buildGameOverScreen();
     hideHealthBoard();
@@ -116,7 +115,6 @@ function levelTwoView() {
     showHealthBoard();
     showPlayButton();
     showBattlers(64);
-    hideMotherShips();
     GAME_STATES.GAME_ON = true;
 }
 
