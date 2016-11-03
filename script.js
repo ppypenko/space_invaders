@@ -37,6 +37,18 @@ var manifest = [{
 }, {
     src: "scripts/game_states.js"
 }, {
+    src: "images/boom_battler.png",
+    id: "boom_battler"
+}, {
+    src: "images/boom_mothership.png",
+    id: "boom_mothership"
+}, {
+    src: "images/boom_speeder.png",
+    id: "boom_speeder"
+}, {
+    src: "images/boom_tank.png",
+    id: "boom_tank"
+}, {
     src: "images/battlershot.png",
     id: "battlershot"
 }, {
@@ -107,6 +119,18 @@ var manifest = [{
     id: "healthDrop"
 }, {
     src: "scripts/game_loop.js"
+}, {
+    src: "sounds/alien.wav",
+    id: "alien"
+}, {
+    src: "sounds/explosion.wav",
+    id: "explosion"
+}, {
+    src: "sounds/laser.wav",
+    id: "laser"
+}, {
+    src: "sounds/zap.wav",
+    id: "zap"
 }];
 
 function setupCanvas() {
@@ -123,6 +147,7 @@ function loadComplete(evt) {
 function loadFiles() {
     queue = new createjs.LoadQueue(true, "assets/");
     queue.on("complete", loadComplete, this);
+    queue.installPlugin(createjs.Sound);
     queue.loadManifest(manifest);
 }
 
