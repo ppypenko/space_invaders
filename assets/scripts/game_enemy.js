@@ -451,8 +451,7 @@ function fireMothershipShot() {
 function moveMothershipShots() {
     var i = 0,
         e = 0,
-        u = 0,
-        middle = (enemy.mothershipUfo.shotCloneSpread / 2);
+        u = 0;
     for (i = 0; i < enemy.mothershipUfo.cloneSize; i += 1) {
         for (e = 0; e < enemy.mothershipUfo.shotCloneSize; e += 1) {
             for (u = 0; u < enemy.mothershipUfo.shotCloneSpread; u += 1) {

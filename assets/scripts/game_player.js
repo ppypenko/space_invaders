@@ -160,7 +160,7 @@ function healthPickup() {
 }
 
 function moveHealthDrop() {
-    if (aiPlayer.healthDrop.visible && aiPlayer.healthDrop.y < 570) {
+    if (aiPlayer.healthDrop.visible && aiPlayer.healthDrop.y < 555) {
         aiPlayer.healthDrop.y += 10;
     }
 }
@@ -210,11 +210,11 @@ function aiPlayerMoveShot() {
 }
 
 function aiPlayerMovement() {
-    if (aiPlayer.moveLeft) {
+    if (aiPlayer.moveLeft && aiPlayer.tank.x > 0) {
         aiPlayer.tank.x -= aiPlayer.speed;
         aiPlayer.turrent.x -= aiPlayer.speed;
     }
-    if (aiPlayer.moveRight) {
+    if (aiPlayer.moveRight && aiPlayer.tank.x < 800) {
         aiPlayer.tank.x += aiPlayer.speed;
         aiPlayer.turrent.x += aiPlayer.speed;
     }
@@ -238,7 +238,7 @@ function resetaiPlayer() {
     aiPlayer.tank.x = 400;
     aiPlayer.turrent.x = 400;
     aiPlayer.tank.y = 570;
-    aiPlayer.turrent.y = 545;
+    aiPlayer.turrent.y = 540;
     aiPlayer.tank.visible = true;
     aiPlayer.turrent.visible = true;
 }
