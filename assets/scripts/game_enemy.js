@@ -505,6 +505,7 @@ function moveShots(ufo) {
 }
 
 function moveEnemyShots() {
+    
     moveMothershipShots();
     moveShots(enemy.battlerUfo);
     moveShots(enemy.speederUfo);
