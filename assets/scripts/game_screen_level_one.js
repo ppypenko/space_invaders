@@ -1,7 +1,6 @@
 "use strict";
 
 var levelOneScreen;
-var firstLevelBgIndex;
 
 function buildLevelOneScreen() {
     levelOneScreen = new createjs.Bitmap(queue.getResult("levelOne"));
@@ -9,7 +8,6 @@ function buildLevelOneScreen() {
     levelOneScreen.y = 0;
     levelOneScreen.visible = false;
     stage.addChild(levelOneScreen);
-    firstLevelBgIndex = stage.getChildIndex(levelOneScreen);
 }
 
 function showLevelOneScreen() {
