@@ -3,6 +3,7 @@ var done = false;
 
 function setupGame() {
     if (!done) {
+        console.log("type tbeatty for the easter egg");
         buildTitle();
         buildInstructionScreen();
         buildLevelOneScreen();
